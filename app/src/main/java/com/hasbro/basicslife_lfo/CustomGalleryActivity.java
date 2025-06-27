@@ -40,11 +40,9 @@ network.registerDefaultNetworkCallback();
         File file = new File(getExternalFilesDir(folderName), "/");
         if (file.isDirectory()) {
             listFile = file.listFiles();
-                if (listFile != null) {
-                    for (File value : listFile) {
-                        f.add(value.getAbsolutePath());
-                    }
-                }
+            for (int i = 0; i < listFile.length; i++) {
+                f.add(listFile[i].getAbsolutePath());
+            }
         }
     }
 }
