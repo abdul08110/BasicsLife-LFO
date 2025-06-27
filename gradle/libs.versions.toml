@@ -1,0 +1,122 @@
+[versions]
+agp = "8.11.0"
+android = "10.10.0"
+androidMapsUtils = "3.14.0"
+androidsvg = "1.4"
+autoimageslider = "1.4.1"
+biometric = "1.1.0"
+browser = "1.8.0"
+cardview = "1.0.0"
+composeThemeAdapter = "1.2.1"
+converterGson = "3.0.0"
+core = "1.46.0"
+databindingRuntime = "8.11.0"
+design = "34.0.0"
+firebaseAppcheck = "18.0.0"
+firebaseAppcheckPlayintegrity = "18.0.0"
+firebaseAppcheckSafetynet = "16.1.2"
+firebaseAuth = "23.2.1"
+firebaseBom = "33.16.0"
+firebaseCore = "21.1.1"
+firebaseDatabase = "21.0.0"
+firebaseMessaging = "24.1.2"
+firebaseStorage = "21.0.2"
+glide = "4.16.0"
+googleApiClient = "2.8.0"
+googlePlayServicesLocation = "21.3.0"
+googleServices = "4.4.3"
+gridlayout = "1.1.0"
+gson = "2.13.1"
+itext7Core = "9.2.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.1"
+legacyPreferenceV14 = "1.0.0"
+library = "1.6.2"
+licenseview = "1.1"
+loaderviewlibrary = "3.0.0"
+mapsUtilsKtx = "5.2.0"
+material = "1.12.0"
+mpandroidchart = "v3.1.0"
+navigationFragment = "2.9.0"
+navigationUi = "2.9.0"
+places = "4.3.1"
+playServicesMaps = "19.2.0"
+preference = "1.2.1"
+recyclerview = "1.4.0"
+retrofit = "3.0.0"
+sec="2.0.1"
+activity = "1.10.1"
+constraintlayout = "2.2.1"
+staxApi = "1.0-2"
+stepperIndicator = "1.0.7"
+volley = "1.2.1"
+workRuntime = "2.10.2"
+workRuntimeKtx = "2.10.2"
+firebaseInappmessagingDisplay = "21.0.2"
+
+[libraries]
+android = { module = "com.mapbox.maps:android", version.ref = "android" }
+android-maps-utils = { module = "com.google.maps.android:android-maps-utils", version.ref = "androidMapsUtils" }
+androidsvg = { module = "com.caverock:androidsvg", version.ref = "androidsvg" }
+autoimageslider = { module = "com.github.koai-dev:Android-Image-Slider", version.ref = "autoimageslider" }
+biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
+browser = { module = "androidx.browser:browser", version.ref = "browser" }
+cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
+compose-theme-adapter = { module = "com.google.android.material:compose-theme-adapter", version.ref = "composeThemeAdapter" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+databinding-runtime = { module = "androidx.databinding:databinding-runtime", version.ref = "databindingRuntime" }
+design = { module = "com.android.support:design", version.ref = "design" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-appcheck = { module = "com.google.firebase:firebase-appcheck", version.ref = "firebaseAppcheck" }
+firebase-appcheck-playintegrity = { module = "com.google.firebase:firebase-appcheck-playintegrity", version.ref = "firebaseAppcheckPlayintegrity" }
+firebase-appcheck-safetynet = { module = "com.google.firebase:firebase-appcheck-safetynet", version.ref = "firebaseAppcheckSafetynet" }
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuth" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-core = { module = "com.google.firebase:firebase-core", version.ref = "firebaseCore" }
+firebase-database = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabase" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging", version.ref = "firebaseMessaging" }
+firebase-storage = { module = "com.google.firebase:firebase-storage", version.ref = "firebaseStorage" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+google-api-client = { module = "com.google.api-client:google-api-client", version.ref = "googleApiClient" }
+google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
+gridlayout = { module = "androidx.gridlayout:gridlayout", version.ref = "gridlayout" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+itext7-core = { module = "com.itextpdf:itext7-core", version.ref = "itext7Core" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+legacy-preference-v14 = { module = "androidx.legacy:legacy-preference-v14", version.ref = "legacyPreferenceV14" }
+library = { module = "com.github.f0ris.sweetalert:library", version.ref = "library" }
+licenseview = { module = "com.larswerkman:LicenseView", version.ref = "licenseview" }
+loaderviewlibrary = { module = "io.github.elye:loaderviewlibrary", version.ref = "loaderviewlibrary" }
+maps-utils-ktx = { module = "com.google.maps.android:maps-utils-ktx", version.ref = "mapsUtilsKtx" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "mpandroidchart" }
+navigation-fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "navigationFragment" }
+navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationUi" }
+places = { module = "com.google.android.libraries.places:places", version.ref = "places" }
+
+
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "googlePlayServicesLocation" }
+play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMaps" }
+preference = { module = "androidx.preference:preference", version.ref = "preference" }
+recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+stax-api = { module = "javax.xml.stream:stax-api", version.ref = "staxApi" }
+stepper-indicator = { module = "com.github.badoualy:stepper-indicator", version.ref = "stepperIndicator" }
+volley = { module = "com.android.volley:volley", version.ref = "volley" }
+work-runtime = { module = "androidx.work:work-runtime", version.ref = "workRuntime" }
+work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+firebase-inappmessaging-display = { group = "com.google.firebase", name = "firebase-inappmessaging-display", version.ref = "firebaseInappmessagingDisplay" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+secrets-gradle-plugin={ id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin",version.ref="sec"}
+
+
+

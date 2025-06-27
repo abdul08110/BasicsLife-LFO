@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Welcome">
+
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"
+            android:checkable="true"/>
+        <item
+            android:id="@+id/sales"
+            android:icon="@drawable/ic_cart"
+            android:title="Sales" />
+        <item
+            android:id="@+id/stocks"
+            android:icon="@drawable/stocks"
+            android:title="Stocks" />
+    <item
+        android:id="@+id/staff"
+        android:icon="@drawable/staff"
+        android:title="Staffs" />
+    <item
+        android:id="@+id/sellthrough"
+        android:icon="@drawable/sellthrough"
+        android:title="Sell Through" />
+
+    <item
+        android:id="@+id/salesdata"
+        android:icon="@drawable/nearby"
+        android:title="Target Achieve" />
+        <item
+            android:id="@+id/ptask"
+            android:icon="@drawable/ic_promo"
+            android:title="Pending Task" />
+
+        <item android:title="Profile">
+            <menu>
+                <item
+                    android:id="@+id/profile"
+                    android:icon="@drawable/ic_profile"
+                    android:title="Profile" />
+                <item
+                    android:id="@+id/lgout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="Logout" />
+            </menu>
+        </item>
+
+    <item android:title="Support">
+        <menu>
+
+            <item
+                android:id="@+id/setting"
+                android:icon="@drawable/ic_settings"
+                android:title="Setting" />
+            <item
+                android:id="@+id/support"
+                android:icon="@drawable/ic_support"
+                android:title="Support" />
+
+        </menu>
+    </item>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/share"
+                android:icon="@drawable/ic_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/rateus"
+                android:icon="@drawable/ic_rateus"
+                android:title="Rate Us" />
+        </menu>
+    </item>
+</menu>

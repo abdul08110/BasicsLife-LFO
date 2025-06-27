@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:id="@+id/store_nametext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/black"
+            android:text="Name : "/>
+        <TextView
+            android:id="@+id/firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_toEndOf="@+id/store_nametext"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:text=""/>
+        <TextView
+            android:id="@+id/bill_notext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/store_nametext"
+            android:layout_below="@+id/firstname"
+            android:maxLines="1"
+            android:text="Code : "
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/empcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstname"
+            android:layout_toEndOf="@+id/bill_notext"
+            android:maxLines="1"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+</LinearLayout>
+

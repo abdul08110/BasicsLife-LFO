@@ -1,0 +1,2044 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:layout_marginBottom="40dp"
+    android:layout_marginTop="20dp"
+    android:scrollbars="vertical"
+    >
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:background="@color/basics"
+            android:padding="10dp" />
+        <!-- Header Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/retailer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:padding="5dp"
+                android:fontFamily="@font/freightbold"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <!-- Store Name -->
+            <TextView
+                android:id="@+id/storecode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/freightbold"
+                android:textColor="@android:color/black"
+                android:layout_marginEnd="5dp"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/sales_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp"
+            />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:id="@+id/sales_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="#F8F8F8"
+            >
+
+
+            <!-- First Row: Headers -->
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MTH"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                   />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="QTY"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NSV"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+            </TableRow>
+
+            <!-- Second Row: TGT Data -->
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TGT"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mthtgtqty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mthtgtnsv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <!-- Third Row: ACHV Data -->
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ACHV"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mthachqty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mthachnsv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <!-- Fourth Row: Percentage -->
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mthqtyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mthnsvper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <!-- Fifth Row: MTD Header -->
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MTD"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="QTY"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NSV"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+            </TableRow>
+
+            <!-- Sixth Row: MTD TGT Data -->
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TGT"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mtdtgtqty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtgtnsv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/cellborder"
+                    android:text="0" />
+            </TableRow>
+
+            <!-- Seventh Row: MTD ACHV Data -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ACHV"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mtdachqty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mtdachnsv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <!-- Eighth Row: MTD Percentage -->
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mtdqtyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/mtdnsvper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <!-- LTL Data Section -->
+        <TextView
+            android:id="@+id/ltl_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LTL DATA"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:id="@+id/ltl_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="#F8F8F8"
+            >
+
+
+            <!-- First Row: Headers -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LY"
+                    android:textColor="@color/black" android:textStyle="bold" 
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="QTY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NSV"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+            </TableRow>
+
+            <!-- Second Row: TGT Data -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTH"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/ltlmthqty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/ltlmthnsv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cellborder"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cellborder"
+                    android:text="%"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/ltlmthqtyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cellborder"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/ltlmthnsvper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cellborder"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <!-- Fifth Row: MTD Header -->
+            <TableRow>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LY"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="QTY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NSV"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+            </TableRow>
+
+            <!-- Sixth Row: MTD TGT Data -->
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="MTD"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                     />
+
+                <TextView
+                    android:id="@+id/ltlmtdqty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/ltlmtdnsv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:text="0" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/ltlmtdqtyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/ltlmtdnsvper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <!-- MTD Data Section -->
+        <TextView
+            android:id="@+id/mtd_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="MTD DATA"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:id="@+id/mtd_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="#F8F8F8"
+            >
+            <!-- First Row: Headers -->
+
+
+            <!-- Subheader Row -->
+            <TableRow>
+                <TextView
+                    android:text="ASP"
+                    android:gravity="center"
+                    android:layout_span="2"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/thborder"/>
+                <TextView
+                    android:text="ASPD"
+                    android:layout_span="2"
+                    android:gravity="center"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/thborder"/>
+                <TextView
+                    android:text="SPSF"
+                    android:layout_span="2"
+                    android:gravity="center"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/thborder"/>
+            </TableRow>
+
+            <!-- Data Row 1 -->
+            <TableRow>
+                <TextView
+                    android:text="LY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:background="@drawable/cellborder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdlyasp"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="LY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdlyaspd"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="LY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdlyspsf"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <!-- Data Row 2 -->
+            <TableRow>
+                <TextView
+                    android:text="TY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdtyasp"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="TY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdtyaspd"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="TY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdtyspsf"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdaspper"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdaspdper"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/mtdspsfper"
+                    android:text="0"
+                    android:gravity="center"
+                    android:background="@drawable/cellborder"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+        </TableLayout>
+        <TextView
+            android:id="@+id/prd_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PRODUCT SALES NSV"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/prd_content"
+            android:stretchColumns="*"
+            >
+
+            <!-- Header Row -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BSH"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BTR"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BTS"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BJN"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PROMO"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+            </TableRow>
+
+            <!-- Data Rows -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTH LY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlybsh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlybtr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlybts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlybjn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlypromo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTD (LY)"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlybsh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlybtr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlybts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlybjn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlypromo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/lybshper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/lybtrper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/lybtsper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/lybjnper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/lypromoper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="T-D (TY)"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tgttybsh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tgttybtr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tgttybts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tgttybjn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tgttypromo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTD (TY)"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtybsh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtybtr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtybts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtybjn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtypromo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tybshper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tybtrper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tybtsper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tybjnper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/typromoper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTD (T-A)"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtvabsh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtvabtr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtvabts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtvabjn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtvapromo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXC/DEF"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/excdefbsh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/excdefbtr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/excdefbts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/excdefbjn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/excdefpromo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+            </TableRow>
+
+        </TableLayout>
+
+
+        <TextView
+            android:id="@+id/btr_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BSH DESIGN DATA NSV"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btr_content"
+            android:stretchColumns="*"
+            >
+
+            <!-- Header Row -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PLAIN"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHECKS"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PRINTS"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STRIPES"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+
+            </TableRow>
+
+            <!-- Data Rows -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTH LY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlypl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlych"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlypr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlyst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTD (LY)"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlypl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlych"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlypr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlyst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/pllyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/chlyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/prlyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/stlyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+
+            </TableRow>
+
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTD (TY)"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtypl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtych"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtypr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtyst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/pltyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/chtyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/prtyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/sttyper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+
+            </TableRow>
+
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/bsh_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BTR FIT DATA NSV"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bsh_content"
+            android:stretchColumns="*"
+            >
+
+            <!-- Header Row -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TAPERED"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SKINNY"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" android:textStyle="bold"/>
+            </TableRow>
+
+            <!-- Data Rows -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTH LY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlytap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mthlyski"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTD (LY)"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlytap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdlyski"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/lytapper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/lyskiper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MTD (TY)"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtytap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/mtdtyski"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tytapper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tyskiper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/cellborder"
+                    android:textAlignment="center"
+                    android:padding="5dp" />
+
+            </TableRow>
+
+
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/aprl_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APPAREL --> PROMO (MTD)"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:id="@+id/aprl_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="#F8F8F8"
+            >
+
+
+        <!-- First Row: Headers -->
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LY"
+                android:textColor="@color/black" android:textStyle="bold"
+                android:textAlignment="center"
+                android:padding="5dp"
+                android:background="@drawable/thborder" />
+
+            <TextView
+                android:id="@+id/lymtdappr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAlignment="center"
+                android:padding="5dp"
+                android:background="@drawable/cellborder" />
+        </TableRow>
+
+        <!-- Second Row: TGT Data -->
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TY"
+                android:textColor="@color/black" android:textStyle="bold"
+                android:textAlignment="center"
+                android:background="@drawable/thborder"
+                android:padding="5dp" />
+            <TextView
+                android:id="@+id/tymtdappr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:background="@drawable/cellborder"
+                android:textAlignment="center"
+                android:padding="5dp" />
+        </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/com_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPETITION DATA"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp"
+            />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:id="@+id/com_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="#F8F8F8"
+            >
+
+            <!-- First Row: Headers -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RANK"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BRAND"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="QTY"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NSV"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOH"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REMARKS"
+                    android:textColor="@color/black" android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:background="@drawable/thborder" />
+            </TableRow>
+
+            <!-- Second Row: TGT Data -->
+            <TableRow>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/rank"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:backgroundTint="@color/black"
+                        android:longClickable="false"
+                        android:textIsSelectable="false"
+                        android:focusable="true"
+                        android:cursorVisible="true"
+                        android:autofillHints="none"
+                        android:maxLength="3"
+                        />
+
+                <Spinner
+                    android:id="@+id/cbrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:backgroundTint="@color/black"
+                    android:longClickable="false"
+                    android:textIsSelectable="false"
+                    android:focusable="true"
+                    android:cursorVisible="true"
+                    android:autofillHints="none"
+                    android:maxLength="7"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nsv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:backgroundTint="@color/black"
+                    android:autofillHints="none"
+                    android:maxLength="10"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/soh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:backgroundTint="@color/black"
+                    android:longClickable="false"
+                    android:textIsSelectable="false"
+                    android:focusable="true"
+                    android:cursorVisible="true"
+                    android:autofillHints="none"
+                    android:maxLength="7"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:backgroundTint="@color/black"
+                    android:longClickable="false"
+                    android:textIsSelectable="false"
+                    android:focusable="true"
+                    android:cursorVisible="true"
+                    android:autofillHints="none"/>
+            </TableRow>
+
+
+        </TableLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnAddRow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+"
+                android:backgroundTint="@color/teal_200"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnRemoveRow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="-"
+                android:backgroundTint="@color/teal_200"
+                android:textColor="@android:color/white"
+                android:layout_marginEnd="10dp"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="100dp"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:text="SAVE"
+                android:textStyle="bold"
+                android:backgroundTint="@color/basics"
+                android:textColor="@android:color/black" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+    </HorizontalScrollView>
+</ScrollView>

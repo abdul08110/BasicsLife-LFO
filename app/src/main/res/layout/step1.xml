@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Google Map -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- Bottom Sheet for store selection -->
+    <LinearLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/black"
+        android:layout_gravity="bottom"
+        android:elevation="12dp">
+
+        <TextView
+            android:id="@+id/txtMappedTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mapped Unit(s)"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/unitListContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnConfirmLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CONFIRM LOCATION"
+            android:textAllCaps="true"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/basics"/>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

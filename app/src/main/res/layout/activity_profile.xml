@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".settings"
+    android:background="@color/soft_white"
+    android:orientation="vertical" >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/freightblack"
+                android:gravity="center"
+                android:text=""
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/bgdialog"
+                app:cardCornerRadius="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/dummymobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/mobile"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dummymobile"
+                    android:layout_marginStart="10dp"
+                    android:text="9003039964"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/dummyempcode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_below="@+id/phone"
+                        android:text="@string/empcode"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/empid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/dummyempcode"
+                        android:layout_marginStart="10dp"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+
+                <TextView
+                    android:id="@+id/dummyemail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/empid"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/email"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dummyemail"
+                    android:layout_marginStart="10dp"
+                    android:text="shockssha@gamil.com"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/dummydob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/email"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/d_o_b"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/dob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dummydob"
+                    android:layout_marginStart="10dp"
+                    android:text="08-06-1996"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+
+
+                <TextView
+                    android:id="@+id/dummydoj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dob"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/doj"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/doj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dummydoj"
+                    android:layout_marginStart="10dp"
+                    android:text="08-12-2016"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+
+
+                    <TextView
+                        android:id="@+id/dummyadhar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/doj"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/aadhar"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/aadhar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/dummyadhar"
+                        android:layout_marginStart="10dp"
+                        android:text="352512949239"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+
+                    <TextView
+                        android:id="@+id/dummyadd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/aadhar"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/address"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/dummyadd"
+                        android:layout_marginStart="10dp"
+                        android:text="NO 2/3,varasakthi vinayagar koil street,odamanagar,vanagaram,chennai-600095"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

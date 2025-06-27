@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- To handle the reselection within the app on Android 14 (API level 34) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00030000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:configChanges="orientation|keyboardHidden|screenSize"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:launchMode="singleTop"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".intro.step6"
+            android:exported="false" />
+        <activity
+            android:name=".intro.step5"
+            android:exported="false" />
+        <activity
+            android:name=".intro.step4"
+            android:exported="false" />
+        <activity
+            android:name=".intro.step3"
+            android:exported="false" />
+        <activity
+            android:name=".intro.step2"
+            android:exported="false" />
+        <activity
+            android:name=".intro.step1"
+            android:exported="true" />
+        <activity
+            android:name=".sell_throw_details"
+            android:exported="false" />
+        <activity
+            android:name=".sellthrow_view"
+            android:exported="false" />
+        <activity
+            android:name=".sellthrow_search"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_counter_photo"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_totsoh_details"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_Employee_Details"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_staff_view"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_pending_grn_view"
+            android:exported="false" />
+        <activity
+            android:name=".compSaleRecordSaved"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_soh_details"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_git_details"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_stocks_view"
+            android:exported="false" />
+        <activity
+            android:name=".main_menu_screen"
+            android:exported="false" />
+        <activity
+            android:name=".india_sale_map"
+            android:exported="false" />
+        <activity
+            android:name=".lfo_sales_view"
+            android:exported="false" />
+        <activity
+            android:name=".splash_screen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4128162360578150~2458490452" />
+
+        <activity
+            android:name=".CustomGalleryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".changeMpin"
+            android:exported="false" />
+        <activity
+            android:name=".contactSupport"
+            android:exported="false" />
+        <activity
+            android:name=".enableBiometricPopup"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" /> <!-- The API key for Google Maps-based APIs. -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".updateSuccessfully"
+            android:exported="false" />
+        <activity
+            android:name=".generateMpin"
+            android:exported="false" />
+        <activity
+            android:name=".freshLoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SliderAdapterExample"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".profile"
+            android:exported="false" />
+        <activity
+            android:name=".settings"
+            android:exported="false" />
+        <activity
+            android:name=".passwordUpdated"
+            android:exported="false" />
+        <activity
+            android:name=".forgetPassword"
+            android:exported="false" />
+        <activity
+            android:name=".registeredSuccessfully"
+            android:exported="false" />
+        <activity
+            android:name=".verificationOTP"
+            android:exported="false" />
+        <activity
+            android:name=".Welcome"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <receiver
+            android:name=".NotificationReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name=".NotificationHelper"
+            android:foregroundServiceType="location" />
+    </application>
+
+</manifest>

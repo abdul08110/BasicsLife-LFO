@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sell Through Item Details"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#FABD01"
+        android:textColor="#000000"/>
+
+
+    <!-- Container for Image and Details -->
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="300dp"
+            android:layout_height="450dp"
+            android:src="@drawable/empty"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+           />
+
+        <!-- Details Box -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:id="@+id/detailsTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f8f8f8"
+                android:stretchColumns="1,3"
+                android:layout_gravity="center"
+                android:showDividers="middle"
+                android:divider="@android:color/darker_gray"
+                android:dividerPadding="4dp">
+
+                <!-- First Row -->
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="Item Code"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_item_code"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="MRP"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_mrp"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <!-- Second Row -->
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="Season"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_season"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="Design"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_design"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <!-- Third Row -->
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="Color"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_colour"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="Fit"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_fit_name"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <!-- Fourth Row -->
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="Collar"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_collar"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="Dispatch"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_dis_qty"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <!-- Fifth Row -->
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="GRN Qty"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_grn_qty"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="Actual GRN"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_actual_grn"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <!-- Sixth Row -->
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="Sold"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_sold_qty"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="Stock"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_stock_qty"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <!-- Seventh Row -->
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="Sellthru"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_sell_through"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="NOD"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_nod"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <!-- Eighth Row -->
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="ROS"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_rate_of_sale"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="MRP Val"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_mrp_value"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+                <TableRow android:background="@android:color/white">
+                    <TextView
+                        android:text="Net Sale"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_net_sale"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:text="Discount"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:id="@+id/text_discount_value"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </TableRow>
+                <TableRow android:background="@android:color/white">
+                <TextView
+                    android:text="Discount %"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:id="@+id/text_discount_perc"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:padding="8dp" />
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

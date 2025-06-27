@@ -1,0 +1,309 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:layout_marginBottom="40dp"
+    android:layout_marginTop="20dp"
+    android:scrollbars="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/sales_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PENDING GRN DETAILS"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#007F00"
+            android:background="#D8EAF6"
+            android:padding="5dp"
+            android:textSize="16sp" />
+        <!-- Invoice -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Invoice"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/thborder"
+                android:textAlignment="center"
+                android:padding="5dp"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/invno"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:focusable="false"
+                android:inputType="none"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="5dp"
+                />
+        </LinearLayout>
+
+
+        <!-- PO No -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PO No"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/thborder"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pono"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:focusable="false"
+                android:inputType="none"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+        </LinearLayout>
+
+        <!-- LR No -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LR No"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/thborder"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lrno"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:focusable="false"
+                android:inputType="none"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+        </LinearLayout>
+
+        <!-- Transport -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Transport"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/thborder"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/transport"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:focusable="false"
+                android:inputType="none"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+        </LinearLayout>
+
+        <!-- Quantity -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Quantity"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/thborder"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/qty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:focusable="false"
+                android:inputType="none"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+        </LinearLayout>
+
+        <!-- GRN No -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="GRN No"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/thborder"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="text"
+                android:longClickable="false"
+                android:textIsSelectable="false"
+                android:autofillHints="none"
+                android:maxLength="7"
+
+                 />
+        </LinearLayout>
+
+        <!-- GRN Date -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="GRN Date"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/thborder"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/grndate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="text"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:longClickable="false"
+                android:textIsSelectable="false"
+                 />
+        </LinearLayout>
+
+        <!-- GRN Qty -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="GRN Qty"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/thborder"
+                android:textAlignment="center"
+                android:padding="5dp"
+                 />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="number"
+                android:longClickable="false"
+                android:textIsSelectable="false"
+                android:autofillHints="none"
+                android:maxLength="7"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="100dp"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:text="SAVE"
+                android:textStyle="bold"
+                android:backgroundTint="@color/basics"
+                android:textColor="@android:color/black" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

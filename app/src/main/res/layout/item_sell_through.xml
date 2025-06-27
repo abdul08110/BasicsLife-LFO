@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/item_background">
+
+    <!-- Product Image (Maintaining Aspect Ratio) -->
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
+
+    <!-- Grid Layout for Item Details -->
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:columnCount="6"
+        app:useDefaultMargins="true">
+
+        <!-- First Row (Labels) -->
+        <TextView android:text="Item Code:" android:textStyle="bold" style="@style/GridItem"/>
+        <TextView android:id="@+id/text_item_code" android:text="BSH24544"/>
+
+        <TextView android:text="MRP:" android:textStyle="bold" style="@style/GridItem"/>
+        <TextView android:id="@+id/text_mrp" android:text="2099"/>
+
+        <TextView android:text="Season:" android:textStyle="bold" style="@style/GridItem"/>
+        <TextView android:id="@+id/text_season" android:text="SS24JFM"/>
+
+        <!-- Second Row (Labels) -->
+        <TextView android:text="Sold Qty:" android:textStyle="bold" style="@style/GridItem"/>
+        <TextView android:id="@+id/text_sold_qty" android:text="21"/>
+
+        <TextView android:text="Stock:" android:textStyle="bold" style="@style/GridItem"/>
+        <TextView android:id="@+id/text_stock_qty" android:text="30"/>
+
+        <TextView android:text="S/T:" android:textStyle="bold" style="@style/GridItem"/>
+        <TextView android:id="@+id/text_sell_through" android:text="16.08%"/>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+</LinearLayout>

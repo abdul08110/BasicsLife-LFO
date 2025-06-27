@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/grdnt"
+    tools:context=".changeMpin">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_mpin_text"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/freightbold"
+        android:layout_marginTop="60dp"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/old_mpin"
+        app:prefixTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:startIconDrawable="@drawable/ic_password"
+        app:hintTextAppearance="@style/TextLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/oldmpin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:inputType="textPersonName"
+            android:digits="0123456789"
+            android:maxLength="6"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputnew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/new_mpin"
+        app:prefixTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:startIconDrawable="@drawable/ic_password"
+        app:hintTextAppearance="@style/TextLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/newmpin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:digits="0123456789"
+            android:maxLength="6"
+            android:inputType="number"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputconfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:prefixTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:startIconDrawable="@drawable/ic_password"
+        app:hintTextAppearance="@style/TextLabel">
+
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+            android:id="@+id/confirmmpin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:hint="@string/confirm_mpin"
+            android:digits="0123456789"
+            android:maxLength="6"
+            android:inputType="number"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/change"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/freightbold"
+            android:text="@string/change_mpinn"
+            android:textColor="@android:color/white" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

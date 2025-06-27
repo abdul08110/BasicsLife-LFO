@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Basics Life-LFO Portal</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="login_mobile_hint">Mobile</string>
+    <string name="login_password_hint">Enter Six Digit MPIN</string>
+    <string name="hyperlink"><a href="https://basicslife.com/pages/terms-conditions">Terms of Service</a> and <a href="https://basicslife.com/pages/privacy-policy">Privacy Policy</a></string>
+    <string name="biom">Use biometric login with your Fingerprint \nor pattern for faster and easier access to \nyour account. \n\nYou can turn this feature on or off at any \ntime under Settings.</string>
+    <string name="biod">Do you really want to disable \nbiometric login?</string>
+
+    <string name="forgot_n_password">FORGOT\n PASSWORD</string>
+    <string name="length_textfrgtpass">Provide Your Account\'s Phone Number For Which\n You Want To reset Your Password!</string>
+    <string name="generate_mpin">Generate MPIN</string>
+    <string name="create_mpin">Create MPIN</string>
+    <string name="use_another_account">Use another account</string>
+    <string name="forgot_mpin">Forgot MPIN?</string>
+    <string name="sign_in_with_mpin">Sign in with MPIN</string>
+    <string name="enable_biometric">Enable Biometric</string>
+    <string name="login_with_biometric">Login with Biometric</string>
+    <string name="_2021_basicslife">© 2024 BasicsLife</string>
+    <string name="mpin_n_updated">MPIN\n UPDATED</string>
+    <string name="your_mpin_has_been_updated_successfully">Your Mpin Has Been Updated Successfully!</string>
+    <string name="your_record_has_been_inserted_successfully">Your Record Has Been Inserted Successfully!</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="mobile">MOBILE</string>
+    <string name="empcode">Emp Code</string>
+    <string name="email">EMAIL</string>
+    <string name="d_o_b">D.O.B</string>
+    <string name="doj">D.O.J</string>
+    <string name="aadhar">Aadhar NO</string>
+    <string name="address">Address</string>
+    <string name="mpin_created_n_successfully">MPIN CREATED\n SUCCESSFULLY</string>
+    <string name="your_account">Your Account Has Been Registered Successfully!</string>
+    <string name="settings">SETTINGS</string>
+    <string name="change_mpin">Change Mpin</string>
+    <string name="biometric">Biometric</string>
+    <string name="mpin_updated_n_successfully">MPIN UPDATED\n SUCCESSFULLY..!</string>
+    <string name="record_inserted_n_successfully">RECORD INSERTED\n SUCCESSFULLY..!</string>
+    <string name="otp_verification">OTP VERIFICATION</string>
+    <string name="please_enter_the_otp_has_sent_to_your">Please Enter The OTP Has Sent To Your</string>
+    <string name="resend_otp">RESEND OTP</string>
+    <string name="verify">Verify</string>
+    <string name="change_mpin_text">Change MPin!</string>
+    <string name="old_mpin">Old MPin</string>
+    <string name="new_mpin">New Mpin</string>
+    <string name="confirm_mpin">Confirm Mpin</string>
+    <string name="change_mpinn">Change MPin</string>
+    <string name="help_and_support">Help and Support</string>
+    <string name="for_any_query_regarding_basics_life_app_nplease_contact_to_us">For any query regarding Basics Life app, \nPlease contact to us</string>
+    <string name="please_call_us_at">Please call us at</string>
+    <string name="_1800_4194270">1800 4194270</string>
+    <string name="_10_00_am_6_00pm">10:00 AM - 6:00PM</string>
+    <string name="write_to_us_at">Write to us at</string>
+    <string name="support_basicslife_com">support@basicslife.com</string>
+    <string name="x">X</string>
+    <string name="disable_biometric_authentication">Disable Biometric Authentication</string>
+    <string name="disable_biometric">DISABLE BIOMETRIC</string>
+    <string name="skip_for_now">SKIP FOR NOW</string>
+    <string name="use_biometric_authentication">Use Biometric Authentication</string>
+    <string name="enable_biometricc">ENABLE BIOMETRIC</string>
+    <string name="logo">logo</string>
+    <string name="welcome_to_basics_life">Welcome To Basics Life</string>
+    <string name="generate_mpinn">Generate MPIN</string>
+    <string name="_2021_basicslifee">© 2024 BasicsLife</string>
+
+</resources>

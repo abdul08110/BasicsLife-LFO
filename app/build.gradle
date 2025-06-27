@@ -1,0 +1,135 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.secrets.gradle.plugin)
+
+
+}
+
+def Base_URL = '"' + webserviceurl + '"' ?: '"Define BASE URL"';
+def OTP_URL = '"' + otpserviceurl + '"' ?: '"Define OTP URL"'
+
+android.buildTypes.each { type ->
+    type.buildConfigField 'String', 'Base_URL', webserviceurl
+
+}
+android.buildTypes.each { type ->
+    type.buildConfigField 'String', 'OTP_URL', otpserviceurl
+
+}
+
+android {
+
+    compileSdk 36
+
+
+    defaultConfig {
+        applicationId "com.hasbro.basicslife_lfo"
+        minSdkVersion 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+    }
+    viewBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding true
+        buildConfig true
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/INDEX.LIST', 'META-INF/DEPENDENCIES', 'META-INF/*.md']
+            pickFirsts += ['META-INF/AL2.0', 'META-INF/LGPL2.1']
+        }
+    }
+    namespace 'com.hasbro.basicslife_lfo'
+
+}
+
+dependencies {
+
+    implementation files('libs/jersey-client-1.8.jar')
+    implementation files('libs/jersey-core-1.8.jar')
+    implementation files('libs/json-simple-1.1.1.jar')
+    implementation files('libs/commons-lang3-3.0.jar')
+    implementation libs.stax.api
+    implementation libs.gridlayout
+    implementation libs.places
+    implementation libs.activity
+    implementation libs.firebase.inappmessaging.display
+
+
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
+
+
+    implementation libs.appcompat
+    implementation libs.constraintlayout
+    implementation libs.cardview
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    implementation libs.compose.theme.adapter
+    implementation libs.preference
+    implementation libs.play.services.location
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation libs.retrofit
+    implementation libs.converter.gson
+    implementation libs.gson
+    implementation libs.material
+    implementation libs.design
+    implementation libs.legacy.preference.v14
+    implementation libs.preference
+    implementation libs.autoimageslider
+    implementation libs.volley
+    implementation libs.glide
+    implementation libs.licenseview
+    implementation libs.recyclerview
+    implementation libs.stepper.indicator
+    implementation libs.browser
+    implementation libs.work.runtime.ktx
+    implementation libs.biometric
+    implementation libs.library
+    implementation libs.firebase.messaging
+    implementation libs.work.runtime
+    implementation libs.play.services.maps
+    implementation libs.android.maps.utils
+    implementation(libs.maps.utils.ktx)
+    implementation libs.androidsvg
+    implementation libs.mpandroidchart
+    implementation libs.itext7.core
+    implementation (libs.google.api.client){
+        exclude group:'com.google.guava'
+    }
+}
+secrets {
+    // To add your Maps API key to this project:
+    // 1. Open the root project's local.properties file
+    // 2. Add this line, where YOUR_API_KEY is your API key:
+    //        MAPS_API_KEY=YOUR_API_KEY
+    defaultPropertiesFileName 'local.properties'
+
+}

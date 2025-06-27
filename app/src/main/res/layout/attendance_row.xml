@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="4dp"
+    android:paddingHorizontal="4dp">
+
+    <TextView
+        android:id="@+id/txtMonth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="JAN 2025"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/txtLeave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="5%"
+        android:textSize="15sp"
+        android:textColor="#D32F2F"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/txtAttendance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="95%"
+        android:textSize="15sp"
+        android:textColor="#388E3C"
+        android:gravity="center" />
+</LinearLayout>
