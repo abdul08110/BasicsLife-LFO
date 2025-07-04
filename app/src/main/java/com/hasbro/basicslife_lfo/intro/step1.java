@@ -271,7 +271,6 @@ public class step1 extends AppCompatActivity implements OnMapReadyCallback {
                 })
                 .show();
 
-
     }
 
 }
