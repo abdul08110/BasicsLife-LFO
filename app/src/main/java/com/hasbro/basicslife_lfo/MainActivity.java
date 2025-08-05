@@ -3,23 +3,20 @@ package com.hasbro.basicslife_lfo;
 import static androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG;
 import static androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_WEAK;
 import static androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL;
-import static com.hasbro.basicslife_lfo.freshLoginPage.PREFS_NAME;
+import static com.hasbro.basicslife_lfo.FreshLoginPage.PREFS_NAME;
+
 
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.PendingIntent;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.text.method.LinkMovementMethod;
@@ -42,11 +39,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
-import androidx.biometric.BiometricManager.Authenticators.*;
-import androidx.work.Constraints;
-import androidx.work.NetworkType;
-import androidx.work.PeriodicWorkRequest;
-import androidx.work.WorkManager;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -54,21 +46,19 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
-import com.hasbro.basicslife_lfo.intro.step1;
+import com.hasbro.basicslife_lfo.intro.stepOne;
 
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.HttpURLConnection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.Executor;
-import java.util.concurrent.TimeUnit;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Retrofit;
@@ -219,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        sign.setOnClickListener(v -> startActivity(new Intent(this, freshLoginPage.class)));
+        sign.setOnClickListener(v -> startActivity(new Intent(this, FreshLoginPage.class)));
     }
     private void scheduleNotificationAlarm() {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -324,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
                     runOnUiThread(() -> {
                         //message.setText("Welcome : "+ finalUser_name);
 
-                        Intent intent = new Intent(getApplicationContext(), step1.class);
+                        Intent intent = new Intent(getApplicationContext(), stepOne.class);
                         Bundle bundle = new Bundle();
                         intent.putExtra("mobile", phoneno);
                         intent.putExtra("mpin", passwordd);
@@ -608,7 +598,7 @@ public class MainActivity extends AppCompatActivity {
         runOnUiThread(() -> {
             //message.setText("Welcome : "+ finalUser_name);
 
-            Intent intent = new Intent(getApplicationContext(), step1.class);
+            Intent intent = new Intent(getApplicationContext(), stepOne.class);
             Bundle bundle = new Bundle();
             intent.putExtra("mobile", phoneno);
             intent.putExtra("mpin", passwordd);

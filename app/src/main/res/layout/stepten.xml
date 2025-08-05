@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9C4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <!-- HEADER -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SALES PERFORMANCE - CURRENT MONTH"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:background="#FFB300"
+            android:padding="12dp" />
+
+        <!-- BTR FIT SALES -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LTL DATA - BTR FIT SALES"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:background="#000000"
+            android:padding="10dp"
+            android:layout_marginTop="8dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2"
+            android:layout_marginTop="8dp">
+
+            <TableRow>
+                <TextView android:text=""
+                    android:layout_height="wrap_content"/>
+                <TextView android:text="TAP"
+                    style="@style/SalesHeaderCell"/>
+                <TextView android:text="SKI"
+                    style="@style/SalesHeaderCell" />
+            </TableRow>
+
+            <!-- MTH LY -->
+            <TableRow>
+                <TextView android:text="MTH (LY)"
+                    style="@style/LabelCell"
+                    />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- MTH TY -->
+            <TableRow>
+                <TextView android:text="MTH (TY)"
+                    style="@style/LabelCell" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- % -->
+            <TableRow>
+                <TextView android:text="%"
+                    style="@style/LabelCell" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- Divider -->
+            <TableRow>
+                <TextView android:text="" android:layout_height="1dp"
+                    android:layout_span="3"
+                    android:background="#D84315"
+                    android:layout_width="match_parent" />
+            </TableRow>
+
+            <!-- MTD LY -->
+            <TableRow>
+                <TextView android:text="MTD (LY)"
+                    style="@style/LabelCell" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- MTD TY -->
+            <TableRow>
+                <TextView android:text="MTD (TY)"
+                    style="@style/LabelCell"/>
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- % -->
+            <TableRow>
+                <TextView android:text="%"
+                    style="@style/LabelCell" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- OTHER DATA POINTS MTD -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OTHER DATA POINTS - MTD"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:background="#000000"
+            android:padding="10dp"
+            android:layout_marginTop="8dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2,3,4">
+
+            <!-- Header -->
+            <TableRow>
+                <TextView android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView android:text="ASP" style="@style/SalesHeaderCell" />
+                <TextView android:text="ASPD" style="@style/SalesHeaderCell" />
+                <TextView android:text="SPSF" style="@style/SalesHeaderCell" />
+            </TableRow>
+
+            <!-- LY -->
+            <TableRow>
+                <TextView android:text="MTD (LY)"
+                    style="@style/LabelCell" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- TY -->
+            <TableRow>
+                <TextView android:text="MTD (TY)"
+                    style="@style/LabelCell" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- % -->
+            <TableRow>
+                <TextView android:text="%"
+                    style="@style/LabelCell"
+                     />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+        </TableLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:gravity="center_vertical">
+
+            <!-- Left aligned BACK button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start">
+
+                <Button
+                    android:id="@+id/btnBackStep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="← BACK"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:background="@drawable/next_button_background"
+                    android:paddingHorizontal="20dp" />
+            </LinearLayout>
+
+            <!-- Right aligned NEXT button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end">
+
+                <Button
+                    android:id="@+id/btnNextStep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="NEXT →"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@drawable/next_button_background"
+                    android:paddingHorizontal="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

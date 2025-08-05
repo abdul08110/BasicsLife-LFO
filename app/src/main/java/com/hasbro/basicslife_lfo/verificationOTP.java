@@ -169,7 +169,7 @@ public class verificationOTP extends AppCompatActivity {
                 .setContentText("You have exceeded the maximum OTP resend attempts.")
                 .setConfirmText("Go Back")
                 .setConfirmClickListener(sDialog -> {
-                    Intent intent = new Intent(this, freshLoginPage.class);
+                    Intent intent = new Intent(this, FreshLoginPage.class);
                     startActivity(intent);
                     finish();
                 }).show();

@@ -5,9 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,40 +19,30 @@ import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.view.GravityCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.hasbro.basicslife_lfo.GpsTracker;
 import com.hasbro.basicslife_lfo.MainActivity;
 import com.hasbro.basicslife_lfo.R;
-import com.hasbro.basicslife_lfo.SafeClikcListener;
-import com.hasbro.basicslife_lfo.Welcome;
-import com.hasbro.basicslife_lfo.lfo_sales_view;
 import com.hasbro.basicslife_lfo.geturl;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.Objects;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Retrofit;
 
-public class step1 extends AppCompatActivity implements OnMapReadyCallback {
+public class stepOne extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final int REQUEST_LOCATION = 1;
     private GoogleMap mMap;
@@ -69,6 +57,8 @@ public class step1 extends AppCompatActivity implements OnMapReadyCallback {
 
     private LinearLayout unitListContainer;
     private Button btnConfirmLocation;
+    private boolean isFirstMapLoad = true;
+
 
     Retrofit retrofit = geturl.getClient();
     Dialog myDialog;
@@ -76,10 +66,10 @@ public class step1 extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.step1);
+        setContentView(R.layout.stepone);
 
         unitListContainer = findViewById(R.id.unitListContainer);
-        btnConfirmLocation = findViewById(R.id.btnConfirmLocation);
+//btnConfirmLocation = findViewById(R.id.btnConfirmLocation);
 
         setUserDetails();
         checkLocationPermission();
@@ -91,8 +81,8 @@ public class step1 extends AppCompatActivity implements OnMapReadyCallback {
 
         // Handle Back Press
         setupBackPressedHandler();
-        btnConfirmLocation.setEnabled(false);
-        btnConfirmLocation.setAlpha(0.5f);
+      //  btnConfirmLocation.setEnabled(false);
+//btnConfirmLocation.setAlpha(0.5f);
     }
 
     private void setUserDetails() {
@@ -124,6 +114,33 @@ public class step1 extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+
+            gpsTracker = new GpsTracker(this);
+            if (gpsTracker.canGetLocation()) {
+                double lat = gpsTracker.getLatitude();
+                double lng = gpsTracker.getLongitude();
+
+                LatLng myLocation = new LatLng(lat, lng);
+
+                // Add marker
+                mMap.addMarker(new MarkerOptions()
+                        .position(myLocation)
+                        .title("You are here"));
+
+                // Move camera
+                if (isFirstMapLoad) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
+                    isFirstMapLoad = false;
+                }
+
+            }
+        }
+
         fetchStoreData();
     }
 
@@ -140,101 +157,116 @@ public class step1 extends AppCompatActivity implements OnMapReadyCallback {
         double lat = gpsTracker.getLatitude();
         double lng = gpsTracker.getLongitude();
 
-        System.out.println("userLatitude : " +lat);
-        System.out.println("userLongitude : " +lng);
-
         String url = retrofit.baseUrl() + "getgpsdata?latitude=" + lat + "&longitude=" + lng + "&tmcode=" + tmcode;
         mRequestQueue = Volley.newRequestQueue(this);
 
         StringRequest request = new StringRequest(Request.Method.GET, url, response -> {
             try {
                 JSONObject obj = new JSONObject(response);
-                if (!obj.has("storegpsdata")) {
-                    Toast.makeText(this, "No store data received", Toast.LENGTH_LONG).show();
+                if (!obj.has("store_list")) {
+                    Toast.makeText(this, "No nearby store found", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                storeGpsData = obj.getJSONArray("storegpsdata");
-                if (storeGpsData.length() == 0) {
-                    Toast.makeText(this, "No stores found nearby", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                mMap.clear();
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), 15));
-
+                JSONArray storeArray = obj.getJSONArray("store_list");
                 unitListContainer.removeAllViews();
 
-                for (int i = 0; i < Math.min(storeGpsData.length(), 3); i++) {
-                    JSONArray store = storeGpsData.getJSONArray(i);
-
-                    double storeLat = store.getDouble(4);
-                    double storeLng = store.getDouble(5);
-                    LatLng storeLoc = new LatLng(storeLat, storeLng);
-                    Marker marker = mMap.addMarker(new MarkerOptions().position(storeLoc).title(store.getString(1)));
-                    marker.setTag(store);
+                for (int i = 0; i < storeArray.length(); i++) {
+                    JSONObject storeObj = storeArray.getJSONObject(i);
+                    String strId = storeObj.getString("str_id");
+                    String storeName = storeObj.getString("store_name");
+                    String groupName = storeObj.getString("group_name");
+                    String storeCode = storeObj.getString("store_code");
 
                     View unitView = LayoutInflater.from(this).inflate(R.layout.unit_option_item, unitListContainer, false);
                     TextView nameText = unitView.findViewById(R.id.unitName);
                     TextView addressText = unitView.findViewById(R.id.unitAddress);
                     ImageView checkIcon = unitView.findViewById(R.id.tickIcon);
 
-                    String storeName = store.getString(1);
-                    String storeGroup = store.getString(2);
-                    String storeCode = store.getString(0);
-                    String strid = store.getString(6);
-                    String area = store.getString(7);
-
                     nameText.setText(storeName);
-                    addressText.setText(storeGroup);
+                    addressText.setText(groupName);
 
+                    checkIcon.setVisibility(View.GONE);
                     unitView.setOnClickListener(v -> {
-                        selectedStoreName = storeName;
-                        selectedGroupName = storeGroup;
-                        selectedStoreCode = storeCode;
-                        selectedStrId = strid;
-                        selectedCarpetarea = area;
-
                         for (int j = 0; j < unitListContainer.getChildCount(); j++) {
                             View child = unitListContainer.getChildAt(j);
                             ImageView tick = child.findViewById(R.id.tickIcon);
                             tick.setVisibility(child == unitView ? View.VISIBLE : View.GONE);
+
+                            child.setBackgroundColor(child == unitView ? Color.parseColor("#E0F7FA") : Color.TRANSPARENT);
                         }
-                        btnConfirmLocation.setEnabled(true);
-                        btnConfirmLocation.setAlpha(1f);
+
+                        // fetch full details now
+                        fetchStep0Data(strId);
                     });
 
                     unitListContainer.addView(unitView);
                 }
 
-                btnConfirmLocation.setOnClickListener(v -> {
-                    Intent intent = new Intent(this, step2.class);
-                    intent.putExtra("strname", selectedStoreName);
-                    intent.putExtra("strcode", selectedStoreCode);
-                    intent.putExtra("grname", selectedGroupName);
-                    intent.putExtra("strid", selectedStrId);
-                    intent.putExtra("carea", selectedCarpetarea);
-                    intent.putExtra("tmcode", tmcode);
-                    intent.putExtra("mobile", phoneno);
-                    intent.putExtra("name", user_name);
-                    intent.putExtra("bio", bio);
-                    startActivity(intent);
-                    finish();
-                });
-
             } catch (JSONException e) {
-                Toast.makeText(this, "Error parsing store data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Error parsing store list", Toast.LENGTH_SHORT).show();
                 Log.e("PARSE_ERROR", e.getMessage());
             } finally {
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
             }
         }, error -> {
-            Toast.makeText(this, "Error fetching store data", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Error fetching store list", Toast.LENGTH_LONG).show();
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         });
 
         mRequestQueue.add(request);
     }
+
+    private void fetchStep0Data(String strId) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        System.out.println("Selected StoreID : " + strId);
+        String url = retrofit.baseUrl() + "getStep0DataJsonById?str_id=" + strId;
+
+        StringRequest detailRequest = new StringRequest(Request.Method.GET, url, response -> {
+            try {
+                JSONObject obj = new JSONObject(response);
+
+                if (!obj.has("store_info")) {
+                    Toast.makeText(this, "Failed to fetch store details", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                JSONObject storeInfo = obj.getJSONObject("store_info");
+                JSONObject gpsInfo = obj.getJSONObject("gps_distance_info");
+
+                JSONObject keyContacts = new JSONObject(); // 🛡️ Safe default
+                if (obj.has("key_contacts")) {
+                    keyContacts = obj.getJSONObject("key_contacts");
+                }
+                JSONArray staffList = obj.has("staff_list") ? obj.getJSONArray("staff_list") : new JSONArray();
+
+                // Pass to next step
+                Intent intent = new Intent(this, stepTwo.class);
+                intent.putExtra("store_info", storeInfo.toString());
+                intent.putExtra("gps_info", gpsInfo.toString());
+                intent.putExtra("key_contacts", keyContacts.toString());
+                intent.putExtra("staff_list", staffList.toString());
+                intent.putExtra("tmcode", tmcode);
+                intent.putExtra("mobile", phoneno);
+                intent.putExtra("name", user_name);
+                intent.putExtra("bio", bio);
+                startActivity(intent);
+                finish();
+
+            } catch (JSONException e) {
+                Toast.makeText(this, "Failed to parse store detail", Toast.LENGTH_SHORT).show();
+                Log.e("PARSE_ERROR", e.toString());
+            } finally {
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            }
+        }, error -> {
+            Toast.makeText(this, "Error fetching store detail", Toast.LENGTH_LONG).show();
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        });
+
+        mRequestQueue.add(detailRequest);
+    }
+
     private void setupBackPressedHandler() {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -248,7 +280,7 @@ public class step1 extends AppCompatActivity implements OnMapReadyCallback {
 
     private void logout() {
 
-        new SweetAlertDialog(step1.this, SweetAlertDialog.WARNING_TYPE)
+        new SweetAlertDialog(stepOne.this, SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("Basics Life LFO Portal")
                 .setContentText("Sure You Want To Logout...")
                 .setConfirmText("Stay")
@@ -262,7 +294,7 @@ public class step1 extends AppCompatActivity implements OnMapReadyCallback {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
 
-                        Intent it = new Intent(step1.this, MainActivity.class);
+                        Intent it = new Intent(stepOne.this, MainActivity.class);
                         it.putExtra("mobile", phoneno);
                         it.putExtra("name", user_name);
                         it.putExtra("bio", bio);

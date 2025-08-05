@@ -1,6 +1,6 @@
 package com.hasbro.basicslife_lfo;
 
-import static com.hasbro.basicslife_lfo.freshLoginPage.PREFS_NAME;
+import static com.hasbro.basicslife_lfo.FreshLoginPage.PREFS_NAME;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;

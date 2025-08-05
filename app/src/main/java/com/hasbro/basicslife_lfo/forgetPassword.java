@@ -84,7 +84,6 @@ network.registerDefaultNetworkCallback();
             }
         });
 
-
     }
 
     void Ckeck_data(final String  user_id){
@@ -100,8 +99,7 @@ network.registerDefaultNetworkCallback();
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-
-
+                    
                     try {
 
                         // This method call MySQL database perform sql query...
@@ -122,7 +120,7 @@ network.registerDefaultNetworkCallback();
     protected void Internet_connection() {
 
        interneterror();
-        dialog.show();
+      //  dialog.show();
     }
     private String randGenerator() {
 
@@ -148,9 +146,6 @@ network.registerDefaultNetworkCallback();
         return randString;
     }
     protected void Go_Check(final String  user_id)  {
-
-
-
 
         try {
 
@@ -234,8 +229,6 @@ network.registerDefaultNetworkCallback();
 
 
         } finally {
-
-
 
             runOnUiThread(() -> {
                 progressflag=false;

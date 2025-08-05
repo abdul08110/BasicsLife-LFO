@@ -1,5 +1,5 @@
 [versions]
-agp = "8.11.0"
+agp = "8.12.0"
 android = "10.10.0"
 androidMapsUtils = "3.14.0"
 androidsvg = "1.4"

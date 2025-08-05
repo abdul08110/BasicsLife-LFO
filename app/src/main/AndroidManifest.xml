@@ -50,22 +50,46 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".intro.step6"
+            android:name=".intro.stepFourteen"
             android:exported="false" />
         <activity
-            android:name=".intro.step5"
+            android:name=".intro.stepThirteen"
             android:exported="false" />
         <activity
-            android:name=".intro.step4"
+            android:name=".intro.stepTwelve"
             android:exported="false" />
         <activity
-            android:name=".intro.step3"
+            android:name=".intro.stepEleven"
             android:exported="false" />
         <activity
-            android:name=".intro.step2"
+            android:name=".intro.stepTen"
             android:exported="false" />
         <activity
-            android:name=".intro.step1"
+            android:name=".intro.stepNine"
+            android:exported="false" />
+        <activity
+            android:name=".intro.stepFour"
+            android:exported="false" />
+        <activity
+            android:name=".intro.stepOne"
+            android:exported="false" />
+        <activity
+            android:name=".intro.stepEight"
+            android:exported="false" />
+        <activity
+            android:name=".intro.stepSeven"
+            android:exported="false" />
+        <activity
+            android:name=".intro.stepSix"
+            android:exported="false" />
+        <activity
+            android:name=".intro.stepFive"
+            android:exported="false" />
+        <activity
+            android:name=".intro.stepThree"
+            android:exported="false" />
+        <activity
+            android:name=".intro.stepTwo"
             android:exported="true" />
         <activity
             android:name=".sell_throw_details"
@@ -113,7 +137,7 @@
             android:name=".lfo_sales_view"
             android:exported="false" />
         <activity
-            android:name=".splash_screen"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -153,7 +177,7 @@
             android:name=".generateMpin"
             android:exported="false" />
         <activity
-            android:name=".freshLoginPage"
+            android:name=".FreshLoginPage"
             android:exported="false" />
         <activity
             android:name=".MapsActivity"

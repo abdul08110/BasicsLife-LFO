@@ -68,5 +68,86 @@
         <item name="android:padding">10dp</item>
         <item name="android:inputType">number</item>
     </style>
+    <style name="LabelGrey">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#E0E0E0</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="BoxWhite">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AttendanceHeader">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">#0077cc</item>
+    </style>
+    <style name="SalesInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#EEEEEE</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="SalesInput2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+
+
+    <style name="HeaderCell2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#D84315</item>
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <style name="LabelCell">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="LabelCellDark">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#000000</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="SalesHeaderCell">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:background">#A5392C</item> <!-- Or use #D84315 -->
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
 </resources>
 

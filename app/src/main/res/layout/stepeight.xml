@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9C4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+       >
+
+        <!-- SALES PERFORMANCE Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SALES PERFORMANCE"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="#FFB300"
+            android:padding="12dp" />
+
+        <!-- LAST 3 MONTHS Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LAST 3 MONTHS"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="#000000"
+            android:padding="10dp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Table Header -->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2,3,4,5"
+            android:layout_marginBottom="8dp">
+
+            <TableRow android:layout_marginTop="8dp">
+                <TextView android:text="" />
+                <TextView
+                    android:text="TARGET"
+                    style="@style/SalesHeaderCell"
+                    android:layout_span="2" />
+                <TextView
+                    android:text="ACHIEVEMENT"
+                    style="@style/SalesHeaderCell"
+                    android:layout_span="3" />
+            </TableRow>
+
+            <TableRow>
+                <TextView />
+                <TextView android:text="QTY"  android:textStyle="bold" android:textColor="@android:color/black" android:gravity="center" />
+                <TextView android:text="NSV" android:textStyle="bold" android:textColor="@android:color/black" android:gravity="center" />
+                <TextView android:text="QTY" android:textStyle="bold" android:textColor="@android:color/black" android:gravity="center" />
+                <TextView android:text="NSV" android:textStyle="bold" android:textColor="@android:color/black" android:gravity="center" />
+                <TextView android:text="%" android:textStyle="bold" android:textColor="@android:color/black" android:gravity="center" />
+            </TableRow>
+
+            <!-- Dynamic Month 1 -->
+            <TableRow>
+                <TextView android:id="@+id/txtMonth1" android:textColor="@android:color/black" android:text="Month 1" android:textStyle="bold" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- Dynamic Month 2 -->
+            <TableRow>
+                <TextView android:id="@+id/txtMonth2" android:textColor="@android:color/black" android:text="Month 2" android:textStyle="bold" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <!-- Dynamic Month 3 -->
+            <TableRow>
+                <TextView android:id="@+id/txtMonth3" android:textColor="@android:color/black" android:text="Month 3" android:textStyle="bold" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- CURRENT MONTH -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CURRENT MONTH"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="#000000"
+            android:padding="10dp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Date Update Label -->
+        <TextView
+            android:id="@+id/txtSalesUpdated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SALES UPDATED AS OF - 27 JUL 2025"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:background="#FFE0B2"
+            android:padding="8dp" />
+
+        <!-- FULL MONTH -->
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2">
+
+            <TableRow>
+                <TextView
+                    android:text="FULL MONTH"
+                    style="@style/SalesHeaderCell"
+                    />
+                <TextView
+                    android:text="QTY"
+                    style="@style/SalesHeaderCell"/>
+                <TextView
+                    android:text="NSV"
+                    style="@style/SalesHeaderCell"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="TARGET"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="ACHIEVEMENT"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="%"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- MTD -->
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2">
+
+            <TableRow>
+                <TextView
+                    android:text="MTD"
+                    style="@style/SalesHeaderCell"/>
+                <TextView
+                    android:text="QTY"
+                    style="@style/SalesHeaderCell" />
+                <TextView
+                    android:text="NSV"
+                    style="@style/SalesHeaderCell" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="TARGET"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="ACHIEVEMENT"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="%"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
+                <TextView style="@style/SalesInput" />
+                <TextView style="@style/SalesInput" />
+            </TableRow>
+        </TableLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:gravity="center_vertical">
+
+            <!-- Left aligned BACK button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start">
+
+                <Button
+                    android:id="@+id/btnBackStep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="← BACK"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:background="@drawable/next_button_background"
+                    android:paddingHorizontal="20dp" />
+            </LinearLayout>
+
+            <!-- Right aligned NEXT button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end">
+
+                <Button
+                    android:id="@+id/btnNextStep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="NEXT →"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@drawable/next_button_background"
+                    android:paddingHorizontal="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

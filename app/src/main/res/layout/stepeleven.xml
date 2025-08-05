@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9C4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SALES PERFORMANCE"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:background="#FFB300"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- COMPETITION DATA -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPETITION DATA"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:background="#000000"
+            android:padding="10dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2,3"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Header Row -->
+            <TableRow>
+                <TextView android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView android:text="BRAND"
+                    style="@style/SalesHeaderCell" />
+                <TextView android:text="QTY"
+                    style="@style/SalesHeaderCell" />
+                <TextView android:text="NSV"
+                    style="@style/SalesHeaderCell" />
+            </TableRow>
+
+            <!-- RANK 1 -->
+            <TableRow>
+                <TextView android:text="RANK 1"
+                    style="@style/LabelCell" />
+                <EditText
+                    android:id="@+id/rank1Brand"
+                    style="@style/SalesInput2" />
+                <EditText
+                    android:id="@+id/rank1Qty"
+                    style="@style/SalesInput2" />
+                <EditText
+                    android:id="@+id/rank1Nsv"
+                    style="@style/SalesInput2" />
+            </TableRow>
+
+            <!-- RANK 2 -->
+            <TableRow>
+                <TextView android:text="RANK 2"
+                    style="@style/LabelCell" />
+                <EditText
+                    android:id="@+id/rank2Brand"
+                    style="@style/SalesInput2" />
+                <EditText
+                    android:id="@+id/rank2Qty"
+                    style="@style/SalesInput2" />
+                <EditText
+                    android:id="@+id/rank2Nsv"
+                    style="@style/SalesInput2" />
+            </TableRow>
+
+            <!-- RANK 3 -->
+            <TableRow>
+                <TextView android:text="RANK 3"
+                    style="@style/LabelCell" />
+                <EditText
+                    android:id="@+id/rank3Brand"
+                    style="@style/SalesInput2" />
+                <EditText
+                    android:id="@+id/rank3Qty"
+                    style="@style/SalesInput2" />
+                <EditText
+                    android:id="@+id/rank3Nsv"
+                    style="@style/SalesInput2" />
+            </TableRow>
+
+            <!-- Divider -->
+            <TableRow>
+                <TextView
+                    android:layout_height="1dp"
+                    android:layout_span="4"
+                    android:layout_width="match_parent"
+                    android:background="#D84315" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- STORE DATA -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STORE DATA"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:background="#000000"
+            android:padding="10dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Store Data Fields -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+           >
+
+            <!-- STORE SPD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <TextView
+                    android:text="STORE SPD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:background="#A5392C"
+                    android:textColor="#FFFFFF"
+                    android:padding="8dp" />
+                <EditText
+                    android:id="@+id/storeSpd"
+                    style="@style/SalesInput2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- MENSWEAR CONTB -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <TextView
+                    android:text="MENSWEAR CONT’B"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:background="#A5392C"
+                    android:textColor="#FFFFFF"
+                    android:padding="8dp" />
+                <EditText
+                    android:id="@+id/menswearContb"
+                    style="@style/SalesInput2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- EXTERNAL BRANDS CONTB -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <TextView
+                    android:text="EXTERNAL BRANDS CONT’B"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:background="#A5392C"
+                    android:textColor="#FFFFFF"
+                    android:padding="8dp" />
+                <EditText
+                    android:id="@+id/externalBrandsContb"
+                    style="@style/SalesInput2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- BASICS CONTB -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BASICS CONT’B"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:background="#A5392C"
+                    android:textColor="#FFFFFF"
+                    android:padding="8dp" />
+                <EditText
+                    android:id="@+id/basicsContb"
+                    style="@style/SalesInput2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="16dp"
+                android:gravity="center_vertical">
+
+                <!-- Left aligned BACK button -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start">
+
+                    <Button
+                        android:id="@+id/btnBackStep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="← BACK"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:backgroundTint="@android:color/darker_gray"
+                        android:background="@drawable/next_button_background"
+                        android:paddingHorizontal="20dp" />
+                </LinearLayout>
+
+                <!-- Right aligned NEXT button -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end">
+
+                    <Button
+                        android:id="@+id/btnNextStep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="NEXT →"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:background="@drawable/next_button_background"
+                        android:paddingHorizontal="20dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

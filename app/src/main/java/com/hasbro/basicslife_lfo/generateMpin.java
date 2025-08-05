@@ -230,7 +230,7 @@ public class generateMpin extends AppCompatActivity {
     }
 
     private void navigateToLoginPage() {
-        Intent intent = new Intent(this, freshLoginPage.class);
+        Intent intent = new Intent(this, FreshLoginPage.class);
         startActivity(intent);
         finish();
     }

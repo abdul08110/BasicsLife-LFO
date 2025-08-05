@@ -5,17 +5,17 @@ plugins {
 
 }
 
-def Base_URL = '"' + webserviceurl + '"' ?: '"Define BASE URL"';
-def OTP_URL = '"' + otpserviceurl + '"' ?: '"Define OTP URL"'
-
-android.buildTypes.each { type ->
-    type.buildConfigField 'String', 'Base_URL', webserviceurl
-
-}
-android.buildTypes.each { type ->
-    type.buildConfigField 'String', 'OTP_URL', otpserviceurl
-
-}
+//def Base_URL = '"' + webserviceurl + '"' ?: '"Define BASE URL"';
+//def OTP_URL = '"' + otpserviceurl + '"' ?: '"Define OTP URL"'
+//
+//android.buildTypes.each { type ->
+//    type.buildConfigField 'String', 'Base_URL', webserviceurl
+//
+//}
+//android.buildTypes.each { type ->
+//    type.buildConfigField 'String', 'OTP_URL', otpserviceurl
+//
+//}
 
 android {
 
@@ -37,11 +37,17 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "Base_URL", "\"${webserviceurl}\""
+            buildConfigField "String", "OTP_URL", "\"${otpserviceurl}\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
 
+            buildConfigField "String", "Base_URL", "\"${webserviceurl}\""
+            buildConfigField "String", "OTP_URL", "\"${otpserviceurl}\""
+        }
     }
 
     compileOptions {

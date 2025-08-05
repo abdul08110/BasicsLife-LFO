@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="#A5392C"
         android:layout_gravity="bottom"
         android:elevation="12dp">
 
@@ -39,14 +39,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/btnConfirmLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CONFIRM LOCATION"
-            android:textAllCaps="true"
-            android:layout_marginTop="16dp"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@color/basics"/>
+
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

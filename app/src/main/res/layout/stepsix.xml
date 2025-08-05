@@ -21,12 +21,56 @@
             android:gravity="center"
             android:background="#FFB300"
             android:textColor="@android:color/white"
-            android:padding="12dp" />
+            android:padding="8dp" />
+        <!-- Offer Communication Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:padding="8dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CURRENT OFFERS"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/spinnerOffer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerOffer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerOffer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PRODUCT MIX"
+            android:text="@string/product_mix_sales_qty_mtd"
             android:textSize="18sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -56,28 +100,13 @@
                     android:layout_marginEnd="4dp"/>
                 <TextView
                     android:text="BSH"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="#000000"
-                    android:textColor="#FFFFFF"
-                    android:padding="8dp"
-                    android:layout_margin="2dp"/>
+                    style="@style/SalesHeaderCell"/>
                 <TextView
                     android:text="BTR"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="#000000"
-                    android:textColor="#FFFFFF"
-                    android:padding="8dp"
-                    android:layout_margin="2dp"/>
+                    style="@style/SalesHeaderCell"/>
                 <TextView
                     android:text="BTS"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="#000000"
-                    android:textColor="#FFFFFF"
-                    android:padding="8dp"
-                    android:layout_margin="2dp"/>
+                    style="@style/SalesHeaderCell"/>
             </TableRow>
 
             <!-- MDQ Row -->
@@ -88,21 +117,26 @@
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_marginEnd="4dp"/>
+                    android:layout_marginEnd="4dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:layout_margin="2dp"
+                    android:background="#EEEEEE"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    android:textColor="#000000"
+
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
-                    android:layout_margin="2dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
             </TableRow>
 
@@ -117,18 +151,45 @@
                     android:layout_marginEnd="4dp"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
+                    android:layout_margin="2dp"/>
+
+            </TableRow>
+
+            <!-- SOH% Row -->
+            <TableRow>
+                <TextView
+                    android:text="SOH%"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
+                    android:layout_margin="2dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
+                    android:layout_margin="2dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
 
             </TableRow>
@@ -144,21 +205,21 @@
                     android:layout_marginEnd="4dp"/>
                 <EditText
                     android:id="@+id/onFloorBSH"
-                    android:background="@drawable/edit_text_bg"
+                    android:background="#FFFFFF"
                     android:inputType="number"
-                    android:padding="12dp"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <EditText
                     android:id="@+id/onFloorBTR"
-                    android:background="@drawable/edit_text_bg"
+                    android:background="#FFFFFF"
                     android:inputType="number"
-                    android:padding="12dp"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <EditText
                     android:id="@+id/onFloorBTS"
-                    android:background="@drawable/edit_text_bg"
+                    android:background="#FFFFFF"
                     android:inputType="number"
-                    android:padding="12dp"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
 
             </TableRow>
@@ -173,16 +234,16 @@
                     android:textStyle="bold"
                     android:layout_marginEnd="4dp"/>
                 <TextView
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <TextView
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <TextView
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
 
             </TableRow>
@@ -190,23 +251,23 @@
             <!-- SALES vs SOH Row -->
             <TableRow>
                 <TextView
-                    android:text="SALES vs SOH"
+                    android:text="SALES%"
                     android:padding="8dp"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_marginEnd="4dp"/>
                 <TextView
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <TextView
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
                 <TextView
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="12dp"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
                     android:layout_margin="2dp"/>
             </TableRow>
 
@@ -233,28 +294,13 @@
                         android:layout_marginEnd="4dp"/>
                     <TextView
                         android:text="BJN"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#000000"
-                        android:textColor="#FFFFFF"
-                        android:padding="8dp"
-                        android:layout_margin="2dp"/>
+                        style="@style/SalesHeaderCell"/>
                     <TextView
                         android:text="PRO"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#000000"
-                        android:textColor="#FFFFFF"
-                        android:padding="8dp"
-                        android:layout_margin="2dp"/>
+                        style="@style/SalesHeaderCell"/>
                     <TextView
                         android:text="OTH"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#000000"
-                        android:textColor="#FFFFFF"
-                        android:padding="8dp"
-                        android:layout_margin="2dp"/>
+                        style="@style/SalesHeaderCell"/>
                 </TableRow>
 
                 <!-- MDQ Row -->
@@ -269,18 +315,18 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <TextView
                         android:layout_width="match_parent"
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <TextView
                         android:layout_width="match_parent"
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                 </TableRow>
 
@@ -296,21 +342,46 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <TextView
                         android:layout_width="match_parent"
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <TextView
                         android:layout_width="match_parent"
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                 </TableRow>
+                <!-- SOH% Row -->
+                <TableRow>
+                    <TextView
+                        android:text="SOH%"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
+                        android:layout_margin="2dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
+                        android:layout_margin="2dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
+                        android:layout_margin="2dp"/>
 
+                </TableRow>
                 <!-- ON-FLOOR Row -->
                 <TableRow>
                     <TextView
@@ -322,21 +393,21 @@
                         android:layout_marginEnd="4dp"/>
                     <EditText
                         android:id="@+id/onFloorBJN"
-                        android:background="@drawable/edit_text_bg"
+                        android:background="#FFFFFF"
                         android:inputType="number"
-                        android:padding="12dp"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <EditText
                         android:id="@+id/onFloorPRO"
-                        android:background="@drawable/edit_text_bg"
+                        android:background="#FFFFFF"
                         android:inputType="number"
-                        android:padding="12dp"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <EditText
                         android:id="@+id/onFloorOTH"
-                        android:background="@drawable/edit_text_bg"
+                        android:background="#FFFFFF"
                         android:inputType="number"
-                        android:padding="12dp"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                 </TableRow>
 
@@ -351,39 +422,39 @@
                         android:layout_marginEnd="4dp"/>
 
                     <TextView
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <TextView
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <TextView
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                 </TableRow>
 
                 <!-- SALES vs SOH Row -->
                 <TableRow>
                     <TextView
-                        android:text="SALES vs SOH"
+                        android:text="SALES%"
                         android:padding="8dp"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:layout_marginEnd="4dp"/>
                     <TextView
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <TextView
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                     <TextView
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="12dp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
                         android:layout_margin="2dp"/>
                 </TableRow>
 
