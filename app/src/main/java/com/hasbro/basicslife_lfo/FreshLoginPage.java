@@ -1,7 +1,5 @@
 package com.hasbro.basicslife_lfo;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -11,12 +9,10 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,7 +34,7 @@ import java.util.Random;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Retrofit;
 
-public class freshLoginPage extends AppCompatActivity {
+public class FreshLoginPage extends AppCompatActivity {
     // UI Elements
     private TextInputEditText uid;
     private TextInputLayout textInputMobile;
