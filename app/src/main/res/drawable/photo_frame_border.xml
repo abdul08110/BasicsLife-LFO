@@ -1,0 +1,29 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base color -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFF8E1"/>
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+
+    <!-- Gold border -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="3dp"
+                android:color="#FFD700"/>
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+
+    <!-- Inner highlight -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="1dp"
+                android:color="#40FFFFFF"/>
+            <corners android:radius="2dp"/>
+        </shape>
+    </item>
+</layer-list>

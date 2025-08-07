@@ -1,411 +1,481 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF9C4">
+    android:background="@drawable/bg_app">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <!-- STORE DETAILS -->
-        <TextView
-            android:id="@+id/titleStoreDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="STORE DETAILS"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:background="#FFC107"
-            android:padding="12dp"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+    <!-- ScrollView for content -->
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Group and Store Code Row -->
+        <!-- Content container -->
         <LinearLayout
+            android:id="@+id/mainContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:weightSum="2">
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <TextView
-                android:id="@+id/txtGroupName"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Group Name"
-                android:background="#EEEEEE"
-                android:textStyle="bold"
-                android:padding="8dp"
-                android:textColor="#000000" />
-
-            <TextView
-                android:id="@+id/txtStoreCode"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Store Code"
-                android:background="#EEEEEE"
-                android:textStyle="bold"
-                android:padding="8dp"
-                android:layout_marginStart="8dp"
-                android:textColor="#000000" />
-        </LinearLayout>
-
-        <!-- Store Name -->
-        <TextView
-            android:id="@+id/txtStoreName"
+        <!-- STORE DETAILS CARD -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Store Name"
-            android:background="#EEEEEE"
-            android:textStyle="bold"
-            android:padding="8dp"
-            android:textColor="#000000"
-            android:layout_marginTop="8dp" />
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#ECEFF1"
+            app:strokeColor="#BDBDBD"
+            app:strokeWidth="1dp">
 
-        <!-- KEY CONTACTS -->
-        <TextView
-            android:id="@+id/titleKeyContacts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="KEY CONTACTS"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:background="#212121"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
-
-        <!-- SM Name and Contact -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:weightSum="2">
-
-            <EditText
-                android:id="@+id/edtSmName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="SM Name"
-                android:inputType="textCapWords"
-                android:maxLength="30"
-                android:background="#FFFFFF"
-                android:padding="8dp"
-                android:textColor="#000000" />
-
-            <EditText
-                android:id="@+id/edtSmContact"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="SM Contact"
-                android:inputType="phone"
-                android:maxLength="10"
-                android:background="#FFFFFF"
-                android:padding="8dp"
-                android:layout_marginStart="8dp"
-                android:textColor="#000000" />
-        </LinearLayout>
-
-        <!-- DM Name and Contact -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:weightSum="2">
-
-            <EditText
-                android:id="@+id/edtDmName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="DM Name"
-                android:inputType="textCapWords"
-                android:maxLength="30"
-                android:background="#FFFFFF"
-                android:padding="8dp"
-                android:textColor="#000000" />
-
-            <EditText
-                android:id="@+id/edtDmContact"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="DM Contact"
-                android:inputType="phone"
-                android:maxLength="10"
-                android:background="#FFFFFF"
-                android:padding="8dp"
-                android:layout_marginStart="8dp"
-                android:textColor="#000000" />
-        </LinearLayout>
-
-        <!-- WH Name and Contact -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:weightSum="2">
-
-            <EditText
-                android:id="@+id/edtWhName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="INV/WH Name"
-                android:inputType="textCapWords"
-                android:maxLength="30"
-                android:background="#FFFFFF"
-                android:padding="8dp"
-                android:textColor="#000000" />
-
-            <EditText
-                android:id="@+id/edtWhContact"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="WH Contact"
-                android:inputType="phone"
-                android:maxLength="10"
-                android:background="#FFFFFF"
-                android:padding="8dp"
-                android:layout_marginStart="8dp"
-                android:textColor="#000000" />
-        </LinearLayout>
-
-        <!-- Emails -->
-        <EditText
-            android:id="@+id/edtSmEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="SM Email"
-            android:inputType="textEmailAddress"
-            android:maxLength="50"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:textColor="#000000"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/edtDmEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="DM Email"
-            android:inputType="textEmailAddress"
-            android:maxLength="50"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:textColor="#000000"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/edtWhEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="INV/WH Email"
-            android:inputType="textEmailAddress"
-            android:maxLength="50"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:textColor="#000000"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="STAFF INFORMATION"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:background="#212121"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
-        <!-- Two-Column Layout for Staff 1 and Staff 2 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:weightSum="2"
-            android:divider="?android:dividerVertical"
-            android:showDividers="middle"
-            android:dividerPadding="8dp">
-
-            <!-- STAFF 1 -->
             <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/etStaff1Name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Staff 1 Name"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/etStaff1Code"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Emp. Code"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/etStaff1Contact"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contact #"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/etStaff1Pf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="PF #"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/etStaff1Esi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="ESI #"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/etStaff1Gross"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Gross Pay"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000" />
-            </LinearLayout>
-
-            <!-- STAFF 2 -->
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="8dp">
+                android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/etStaff2Name"
+                <!-- Header with icon -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Staff 2 Name"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
 
-                <TextView
-                    android:id="@+id/etStaff2Code"
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_store"
+                        app:tint="#3F51B5"/>
+
+                    <TextView
+                        android:id="@+id/titleStoreDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="STORE DETAILS"
+                        android:textColor="#3F51B5"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+                <!-- Group and Store Code with Labels -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Emp. Code"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:id="@+id/etStaff2Contact"
+                    <!-- Group Name Column -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Group Name"
+                            android:textSize="12sp"
+                            android:textColor="#777777"/>
+
+                        <TextView
+                            android:id="@+id/txtGroupName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="#333333"
+                            android:textStyle="bold"
+                            android:paddingTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#E0E0E0"
+                        android:layout_marginHorizontal="8dp"/>
+
+                    <!-- Store Code Column -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Store Code"
+                            android:textSize="12sp"
+                            android:textColor="#777777"/>
+
+                        <TextView
+                            android:id="@+id/txtStoreCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="#333333"
+                            android:textStyle="bold"
+                            android:paddingTop="4dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0"
+                    android:layout_marginVertical="8dp"/>
+
+                <!-- Store Name with Label -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Contact #"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
+                    android:orientation="vertical"
+                    android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:id="@+id/etStaff2Pf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="PF #"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Store Name"
+                        android:textSize="12sp"
+                        android:textColor="#777777"/>
 
-                <TextView
-                    android:id="@+id/etStaff2Esi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="ESI #"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp" />
+                    <TextView
+                        android:id="@+id/txtStoreName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:textStyle="bold"
+                        android:paddingTop="4dp"/>
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/etStaff2Gross"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Gross Pay"
-                    android:background="#EEEEEE"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textColor="#000000" />
             </LinearLayout>
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <!-- NEXT BUTTON -->
-        <LinearLayout
+        <!-- KEY CONTACTS CARD -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:paddingTop="24dp">
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#ECEFF1"
+            app:strokeColor="#BDBDBD"
+            app:strokeWidth="1dp">
 
-            <Button
-                android:id="@+id/btnProceedStep1"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NEXT →"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                android:backgroundTint="#1976D2"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="10dp" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:padding="16dp"
+                >
+
+                <!-- Header with icon -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_contact"
+                        app:tint="#D32F2F"/>
+
+                    <TextView
+                        android:id="@+id/titleKeyContacts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="KEY CONTACTS"
+                        android:textColor="#D32F2F"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <!-- SM Name and Contact -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/smNameLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="SM Name"
+                        app:boxStrokeColor="#9E9E9E"
+                        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtSmName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:maxLength="30"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="1dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/smContactLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="SM Contact"
+                        app:boxStrokeColor="#9E9E9E"
+                        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtSmContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:maxLength="10"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!-- DM Name and Contact -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/dmNameLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="DM Name"
+                        app:boxStrokeColor="#9E9E9E"
+                        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtDmName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:maxLength="30"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="1dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/dmContactLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="DM Contact"
+                        app:boxStrokeColor="#9E9E9E"
+                        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtDmContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:maxLength="10"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!-- WH Name and Contact -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/whNameLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="INV/WH Name"
+                        app:boxStrokeColor="#9E9E9E"
+                        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtWhName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:maxLength="30"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="1dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/whContactLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="INV/WH Contact"
+                        app:boxStrokeColor="#9E9E9E"
+                        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtWhContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:maxLength="10"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!-- Emails Section -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/smEmailLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:hint="SM Email"
+                    app:boxStrokeColor="#9E9E9E"
+                    app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtSmEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="50"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dmEmailLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:hint="DM Email"
+                    app:boxStrokeColor="#9E9E9E"
+                    app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtDmEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="50"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/whEmailLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="INV/WH Email"
+                    app:boxStrokeColor="#9E9E9E"
+                    app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtWhEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="50"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- STAFF INFORMATION CARD -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#ECEFF1"
+            app:strokeColor="#BDBDBD"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:id="@+id/staffContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header with icon -->
+                <LinearLayout
+                    android:id="@+id/staffHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_profile"
+                        app:tint="#388E3C"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="STAFF INFORMATION"
+                        android:textColor="#388E3C"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <!-- NEW: dynamic staff content holder -->
+                <LinearLayout
+                    android:id="@+id/staffContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- NEXT BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNextStep"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:text="NEXT"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#3F51B5"
+            app:cornerRadius="8dp"
+
+
+
+        />
     </LinearLayout>
 </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

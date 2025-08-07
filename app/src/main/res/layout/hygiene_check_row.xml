@@ -1,70 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingVertical="6dp"
-    android:paddingHorizontal="8dp"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:baselineAligned="false"
+    xmlns:android="http://schemas.android.com/apk/res/android"> <!-- Crucial for alignment -->
 
+    <!-- Label (40%) -->
     <TextView
         android:id="@+id/txtHygieneLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1.8"
-        android:text="LABEL"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
+        android:layout_weight="2"
+        android:gravity="start|center_vertical"
         android:textSize="15sp"
-        android:maxLines="2"
-        android:ellipsize="end"
-        android:paddingEnd="4dp" />
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingEnd="8dp"/>
 
-    <!-- Yes -->
-    <LinearLayout
+    <!-- Yes (20%) -->
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/radioYes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:buttonTint="@color/colorPrimary"
+        android:padding="4dp"/>
 
-        <RadioButton
-            android:id="@+id/radioYes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@android:color/black" />
-    </LinearLayout>
-
-    <!-- No -->
-    <LinearLayout
+    <!-- No (20%) -->
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/radioNo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:buttonTint="@color/colorPrimary"
+        android:padding="4dp"/>
 
-        <RadioButton
-            android:id="@+id/radioNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@android:color/black" />
-    </LinearLayout>
-
-    <!-- NA -->
-    <LinearLayout
+    <!-- N/A (20%) -->
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/radioNA"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical"
-        android:layout_gravity="center">
-
-        <RadioButton
-            android:id="@+id/radioNA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@android:color/black" />
-    </LinearLayout>
+        android:buttonTint="@color/colorPrimary"
+        android:padding="4dp"/>
 </LinearLayout>

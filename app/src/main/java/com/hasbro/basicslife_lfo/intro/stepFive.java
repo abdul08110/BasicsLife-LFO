@@ -66,12 +66,21 @@ public class stepFive extends AppCompatActivity {
 
         // Set click listeners
         binding.btnCaptureMorning.setOnClickListener(v -> {
+            v.animate()
+                    .scaleX(0.9f)
+                    .scaleY(0.9f)
+                    .setDuration(100)
+                    .withEndAction(() -> v.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(100))
+                    .start();
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             morningPhotoLauncher.launch(intent);
         });
 
         binding.btnNextStep.setOnClickListener(v -> {
-            goToStep4();
+            goToStepSix();
         });
 
         binding.btnBackStep.setOnClickListener(v -> {
@@ -80,7 +89,7 @@ public class stepFive extends AppCompatActivity {
 
 
     }
-    private void goToStep4() {
+    private void goToStepSix() {
         if (morningPhoto == null) {
             new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Photo Required")

@@ -1,197 +1,455 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF9C4">
+    android:background="@drawable/bg_app">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#FFF9C4">
+        android:padding="10dp">
 
-        <!-- Title -->
-        <TextView
-            android:id="@+id/txtTitle"
+        <!-- Header with gradient background -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MONTH ATTENDANCE"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:background="#333333"
-            android:padding="12dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:strokeColor="#E0E0E0"
+            app:strokeWidth="1dp">
 
-        <!-- Month Spinner Group with Label and Border -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/spinner_border"
-            android:padding="8dp"
-            android:layout_marginBottom="12dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select Month"
-                android:textSize="14sp"
-                android:textColor="#000000"
-                android:paddingBottom="4dp" />
+                android:orientation="vertical"
+                android:background="@drawable/gradient_header"
+                android:padding="20dp">
 
-            <Spinner
-                android:id="@+id/spinnerMonth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Monthly Attendance"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:letterSpacing="0.03"
+                    android:paddingBottom="4dp"/>
 
-        <!-- Staff Spinner Group with Label and Border -->
-        <LinearLayout
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Track and manage staff attendance"
+                    android:textColor="#E1F5FE"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Filter Section -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/spinner_border"
-            android:padding="8dp"
-            android:layout_marginBottom="16dp">
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#ECEFF1"
+            app:strokeColor="#BDBDBD"
+            app:strokeWidth="1dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select Staff"
-                android:textSize="14sp"
-                android:textColor="#000000"
-                android:paddingBottom="4dp" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <Spinner
-                android:id="@+id/spinnerStaff"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                <!-- Month Selector -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:hint="Select Month">
 
+                    <AutoCompleteTextView
+                        android:id="@+id/spinnerMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Staff Selector -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:hint="Select Staff">
 
-        <!-- Subheading -->
-        <TextView
-            android:id="@+id/txtSubheading"
+                    <AutoCompleteTextView
+                        android:id="@+id/spinnerStaff"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Summary Card -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ATTENDANCE FOR THE MONTH OF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:background="#CCCCCC"
-            android:padding="8dp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
 
-        <!-- Header Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/txtSubheading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ATTENDANCE SUMMARY"
+                    android:textColor="#3F51B5"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="5">
+
+                    <!-- Present -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Present"
+                            android:textColor="#757575"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/txtPresentDays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#4CAF50"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Absent -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Absent"
+                            android:textColor="#757575"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/txtAbsentDays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#F44336"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Earned Leave -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="E. Leave"
+                            android:textColor="#757575"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/txtEarnedLeaveDays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#9C27B0"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Week Off -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week Off"
+                            android:textColor="#757575"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/txtWeekOffDays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#03A9F4"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Half Day -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Half Day"
+                            android:textColor="#757575"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/txtHalfDay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#795548"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- Attendance Table -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Table Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:background="#3F51B5"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="DATE"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="DAY"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="QTY"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="NSV"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="STATUS"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <!-- Data Rows -->
+                <LinearLayout
+                    android:id="@+id/attendanceContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        <!-- Add this after your attendanceContainer and before the action buttons -->
+        <!-- Summary Footer Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:strokeColor="#BDBDBD"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:weightSum="2">
+
+                <!-- Total QTY -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total QTY:"
+                        android:textColor="#3F51B5"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txtTotalQty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="0"
+                        android:textColor="#3F51B5"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <!-- Total NSV -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total NSV:"
+                        android:textColor="#3F51B5"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txtTotalNsv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="0.00"
+                        android:textColor="#3F51B5"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <!-- Action Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="5"
-            android:baselineAligned="false">
+            android:layout_marginTop="24dp"
+            android:gravity="center">
 
-            <TextView
-                android:text="DATE"
-                style="@style/AttendanceHeader"
-                android:layout_weight="1"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackStep"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:background="@drawable/att_cell_border" />
-
-            <TextView
-                android:text="DAY"
-                style="@style/AttendanceHeader"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:background="@drawable/att_cell_border" />
+                android:text="Back"
+                android:textColor="#3F51B5"
+                app:strokeColor="#3F51B5"
+                app:cornerRadius="8dp"
+                android:layout_marginEnd="8dp"/>
 
-            <TextView
-                android:text="QTY"
-                style="@style/AttendanceHeader"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNextStep"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:background="@drawable/att_cell_border" />
-
-            <TextView
-                android:text="NSV"
-                style="@style/AttendanceHeader"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:background="@drawable/att_cell_border" />
-
-            <TextView
-                android:text="P/A"
-                style="@style/AttendanceHeader"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:background="@drawable/att_cell_border" />
-
+                android:text="Next"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#3F51B5"
+                app:cornerRadius="8dp"/>
         </LinearLayout>
 
-
-        <!-- Data Container -->
-        <LinearLayout
-            android:id="@+id/attendanceContainer"
-            android:baselineAligned="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            />
-
-        <!-- Proceed Button -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="16dp"
-            android:gravity="center_vertical">
-
-            <!-- Left aligned BACK button -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start">
-
-                <Button
-                    android:id="@+id/btnBackStep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="← BACK"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@android:color/darker_gray"
-                    android:background="@drawable/next_button_background"
-                    android:paddingHorizontal="20dp" />
-            </LinearLayout>
-
-            <!-- Right aligned NEXT button -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end">
-
-                <Button
-                    android:id="@+id/btnNextStep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="NEXT →"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:background="@drawable/next_button_background"
-                    android:paddingHorizontal="20dp" />
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
-
 </ScrollView>

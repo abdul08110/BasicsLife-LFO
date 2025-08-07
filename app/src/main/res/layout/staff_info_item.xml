@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="16dp"
+    android:paddingHorizontal="8dp">
+
+    <!-- Staff Title -->
+    <TextView
+        android:id="@+id/staffTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Staff"
+        android:textColor="#388E3C"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:paddingBottom="12dp" />
+
+    <!-- First Row: Name | Emp Code -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <!-- Name -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="12sp"
+                android:textColor="#777777"/>
+
+            <TextView
+                android:id="@+id/staffName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Emp Code -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Emp Code"
+                android:textSize="12sp"
+                android:textColor="#777777"/>
+
+            <TextView
+                android:id="@+id/staffCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingTop="2dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Second Row: Contact | PF No. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <!-- Contact -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:textSize="12sp"
+                android:textColor="#777777"/>
+
+            <TextView
+                android:id="@+id/staffContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingTop="2dp"/>
+        </LinearLayout>
+
+        <!-- PF No. -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PF No."
+                android:textSize="12sp"
+                android:textColor="#777777"/>
+
+            <TextView
+                android:id="@+id/staffPf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingTop="2dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Third Row: ESI No. | Gross Pay -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- ESI No. -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ESI No."
+                android:textSize="12sp"
+                android:textColor="#777777"/>
+
+            <TextView
+                android:id="@+id/staffEsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Gross Pay -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gross Pay"
+                android:textSize="12sp"
+                android:textColor="#777777"/>
+
+            <TextView
+                android:id="@+id/staffGross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingTop="2dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,6 +2,7 @@ package com.hasbro.basicslife_lfo.intro;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -65,27 +67,8 @@ public class stepFour extends AppCompatActivity {
         setupMonthSpinner();
         setupStaffSpinner();
 
-        binding.spinnerMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                updateHeaderText();
-                loadAttendanceData();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
-        });
-
-        binding.spinnerStaff.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                updateHeaderText();
-                loadAttendanceData();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
-        });
+        binding.spinnerMonth.setOnItemClickListener((parent, view, position, id) -> loadAttendanceData());
+       binding.spinnerStaff.setOnItemClickListener((parent, view, position, id) -> loadAttendanceData());
 
         binding.btnNextStep.setOnClickListener(v -> proceedToStepFive());
 
@@ -188,82 +171,228 @@ public class stepFour extends AppCompatActivity {
         binding.spinnerStaff.setAdapter(staffAdapter);
     }
 
-    private void updateHeaderText() {
-        String selectedMonth = binding.spinnerMonth.getSelectedItem().toString();
-        binding.txtSubheading.setText("Attendance for the month of " + selectedMonth);
-    }
-
     private void loadAttendanceData() {
-        int monthIndex = binding.spinnerMonth.getSelectedItemPosition();
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MONTH, -monthIndex);
-        int selectedMonth = calendar.get(Calendar.MONTH) + 1;
-        int selectedYear = calendar.get(Calendar.YEAR);
 
-        int selectedStaffIndex = binding.spinnerStaff.getSelectedItemPosition();
-        String selectedEmpId = "";
-        try {
-            JSONObject obj = staffJSONArray.getJSONObject(selectedStaffIndex);
-            selectedEmpId = obj.optString("emp_id", "");
-        } catch (JSONException e) {
-            e.printStackTrace();
+            Log.d("DEBUG", "loadAttendanceData() called"); // Add this at the very start
+
+            // Rest of your method...
+
+        // 1. Validate month selection
+        String selectedMonthText = binding.spinnerMonth.getText().toString().trim();
+
+
+        if (selectedMonthText.isEmpty()) {
+            Toast.makeText(this, "Please select a month", Toast.LENGTH_SHORT).show();
+            return;
         }
 
+        // 2. Validate staff selection
+        String selectedStaffName = binding.spinnerStaff.getText().toString().trim();
+        if (selectedStaffName.isEmpty()) {
+            Toast.makeText(this, "Please select a staff member", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // 3. Parse month and year from selection
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy", Locale.ENGLISH);
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(sdf.parse(selectedMonthText));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error parsing month selection", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int selectedMonth = calendar.get(Calendar.MONTH) + 1; // Calendar months are 0-based
+        int selectedYear = calendar.get(Calendar.YEAR);
+
+        Log.d("DEBUG", "Selected Month: " + selectedMonth + ", Year: " + selectedYear);
+
+
+        // 4. Find the selected staff's ID
+        String selectedEmpId = "";
+        try {
+            if (staffJSONArray != null) {
+                for (int i = 0; i < staffJSONArray.length(); i++) {
+                    JSONObject obj = staffJSONArray.getJSONObject(i);
+                    String staffName = obj.optString("emp_name", "").trim();
+                    if (staffName.equals(selectedStaffName)) {
+                        selectedEmpId = obj.optString("emp_id", "");
+                        break;
+                    }
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error processing staff data", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (selectedEmpId.isEmpty()) {
+            Toast.makeText(this, "Could not find ID for selected staff", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Log.d("DEBUG", "Selected Staff Name: " + selectedStaffName + ", Emp ID: " + selectedEmpId);
+
+        // 5. Build the request URL
         String url = retrofit.baseUrl() + "getAttendanceWithNsvQty?str_id=" + selectedStoreId +
                 "&emp_id=" + selectedEmpId +
                 "&month=" + selectedMonth +
                 "&year=" + selectedYear;
+        Log.d("DEBUG", "Final URL: " + url);
 
+        // 6. Make the network request
         RequestQueue queue = Volley.newRequestQueue(this);
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        binding.attendanceContainer.removeAllViews();
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject obj = response.getJSONObject(i);
-
-                                String date = obj.optString("date", "");
-                                String day = obj.optString("dayname", "");
-                                String qty = obj.optString("qty", "0");
-                                String nsv = obj.optString("nsv", "0");
-                                String attendance = obj.optString("attendance", "");
-
-                                View row = getLayoutInflater().inflate(R.layout.attendance_row, null);
-                                TextView txtDate = row.findViewById(R.id.txtDate);
-                                TextView txtDay = row.findViewById(R.id.txtDay);
-                                TextView txtQty = row.findViewById(R.id.txtQty);
-                                TextView txtNsv = row.findViewById(R.id.txtNsv);
-                                TextView txtPA = row.findViewById(R.id.txtPA);
-
-                                txtDate.setText(date);
-                                txtDay.setText(day);
-                                txtQty.setText(qty);
-                                txtNsv.setText(String.format(Locale.ENGLISH, "%.2f", Double.parseDouble(nsv)));
-                                txtPA.setText(attendance);
-
-                                binding.attendanceContainer.addView(row);
-                            }
-
-                            if (response.length() == 0) {
-                                Toast.makeText(stepFour.this, "No data found for selected month/staff", Toast.LENGTH_SHORT).show();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(stepFour.this, "Error parsing response", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                        Toast.makeText(stepFour.this, "Error loading data", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        JsonArrayRequest request = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                response -> handleAttendanceResponse(response),
+                error -> handleAttendanceError(error)
+        );
 
         queue.add(request);
+    }
+
+    private void handleAttendanceResponse(JSONArray response) {
+        binding.attendanceContainer.removeAllViews();
+        Log.d("DEBUG", "Response Length: " + response.length());
+        Log.d("DEBUG", "Response: " + response.toString());
+        if (response.length() == 0) {
+            Toast.makeText(this, "No attendance records found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            // Calculate summary stats
+            int presentDays = 0;
+            int weekOffDays = 0;
+            int absentDays = 0;
+            int earnedLeaveDays = 0;
+            int halfDays = 0;
+
+            double totalQty = 0;
+            double totalNsv = 0;
+
+            for (int i = 0; i < response.length(); i++) {
+                JSONObject obj = response.getJSONObject(i);
+
+                String date = obj.optString("date", "");
+                String day = obj.optString("dayname", "");
+                String qtyStr = obj.optString("qty", "0");
+                String nsvStr = obj.optString("nsv", "0");
+                String attendance = obj.optString("attendance", "");
+
+                // Parse numbers safely
+                double qty = 0;
+                double nsv = 0;
+                try {
+                    qty = Double.parseDouble(qtyStr);
+                    nsv = Double.parseDouble(nsvStr);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+                // Update summary stats
+                totalQty += qty;
+                totalNsv += nsv;
+
+                switch (attendance.toUpperCase()) {
+                    case "P":
+                        presentDays++;
+                        break;
+                    case "W":
+                        weekOffDays++;
+                        break;
+                    case "A":
+                        absentDays++;
+                        break;
+                    case "E":
+                        earnedLeaveDays++;
+                        break;
+                    case "H":
+                        halfDays++;
+                        break;
+                }
+
+
+                // Inflate and populate row
+                View row = getLayoutInflater().inflate(R.layout.attendance_row, binding.attendanceContainer, false);
+
+
+                TextView txtDate = row.findViewById(R.id.txtDate);
+                TextView txtDay = row.findViewById(R.id.txtDay);
+                TextView txtQty = row.findViewById(R.id.txtQty);
+                TextView txtNsv = row.findViewById(R.id.txtNsv);
+                TextView txtPA = row.findViewById(R.id.txtPA);
+
+                txtDate.setText(date);
+                txtDay.setText(day);
+                txtQty.setText(String.format(Locale.ENGLISH, "%.0f", qty));
+                txtNsv.setText(String.format(Locale.ENGLISH, "%.2f", nsv));
+                txtPA.setText(attendance);
+
+                // Set color based on attendance status
+                switch (attendance.toUpperCase()) {
+                    case "P":
+                        txtPA.setBackgroundResource(R.drawable.status_present);
+                        txtPA.setTextColor(ContextCompat.getColor(this, R.color.green_dark));
+                        break;
+                    case "W":
+                        txtPA.setBackgroundResource(R.drawable.status_weekoff);
+                        txtPA.setTextColor(ContextCompat.getColor(this, R.color.blue_grey_dark));
+                        break;
+                    case "A":
+                        txtPA.setBackgroundResource(R.drawable.status_absent);
+                        txtPA.setTextColor(ContextCompat.getColor(this, R.color.red_dark));
+                        break;
+                    case "E":
+                        txtPA.setBackgroundResource(R.drawable.status_earned_leave);
+                        txtPA.setTextColor(ContextCompat.getColor(this, R.color.purple_500));
+                        break;
+                    case "H":
+                        txtPA.setBackgroundResource(R.drawable.status_halfday);
+                        txtPA.setTextColor(ContextCompat.getColor(this, R.color.brown));
+                        break;
+                }
+
+
+                binding.attendanceContainer.addView(row);
+            }
+
+            // Update summary UI
+            binding.txtPresentDays.setText(String.valueOf(presentDays));
+            binding.txtAbsentDays.setText(String.valueOf(absentDays));
+            binding.txtEarnedLeaveDays.setText(String.valueOf(earnedLeaveDays));
+            binding.txtWeekOffDays.setText(String.valueOf(weekOffDays));
+            binding.txtHalfDay.setText(String.valueOf(halfDays));
+
+            // Update totals
+            binding.txtTotalQty.setText(String.format(Locale.ENGLISH, "%.0f", totalQty));
+            binding.txtTotalNsv.setText(String.format(Locale.ENGLISH, "%.2f", totalNsv));
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error parsing attendance data", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void handleAttendanceError(VolleyError error) {
+        error.printStackTrace();
+        if (error.networkResponse != null) {
+            Toast.makeText(this,
+                    "Server error: " + error.networkResponse.statusCode,
+                    Toast.LENGTH_SHORT).show();
+        } else if (error.getMessage() != null) {
+            Toast.makeText(this,
+                    "Network error: " + error.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this,
+                    "Unknown error loading attendance data",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }

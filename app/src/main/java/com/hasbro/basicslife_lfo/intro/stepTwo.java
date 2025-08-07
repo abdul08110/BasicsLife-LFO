@@ -3,12 +3,16 @@ package com.hasbro.basicslife_lfo.intro;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hasbro.basicslife_lfo.MainActivity;
+import com.hasbro.basicslife_lfo.R;
 import com.hasbro.basicslife_lfo.databinding.SteptwoBinding;
 
 import org.json.JSONArray;
@@ -30,7 +34,7 @@ public class stepTwo extends AppCompatActivity {
         binding = SteptwoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.btnProceedStep1.setOnClickListener(v -> {
+        binding.btnNextStep.setOnClickListener(v -> {
             if (!validateInputs()) return;
 
             Intent intent = new Intent(this, stepThree.class);
@@ -112,30 +116,41 @@ public class stepTwo extends AppCompatActivity {
             binding.edtWhEmail.setText(keyContacts.optString("inv_wh_email", ""));
 
             // Staff List
-            if (staffList.length() >= 1) {
-                JSONObject staff1 = staffList.getJSONObject(0);
-                binding.etStaff1Name.setText(staff1.optString("emp_name", ""));
-                binding.etStaff1Code.setText(staff1.optString("emp_code", ""));
-                binding.etStaff1Contact.setText(staff1.optString("emp_contact", ""));
-                binding.etStaff1Pf.setText(staff1.optString("pf_number", ""));
-                binding.etStaff1Esi.setText(staff1.optString("esi_number", ""));
-                binding.etStaff1Gross.setText(staff1.optString("gross_pay", ""));
+            LayoutInflater inflater = LayoutInflater.from(this);
+            binding.staffContent.removeAllViews(); // Safe: clear previous staff views
+
+            for (int i = 0; i < staffList.length(); i++) {
+                JSONObject staff = staffList.getJSONObject(i);
+
+                // ✅ DO NOT attach the view during inflate
+                View staffView = inflater.inflate(R.layout.staff_info_item, null); // <- use 'null' instead of parent
+
+                // Populate data
+                ((TextView) staffView.findViewById(R.id.staffTitle)).setText("Staff " + (i + 1));
+                ((TextView) staffView.findViewById(R.id.staffName)).setText(getSafeText(staff.optString("emp_name", "")));
+                ((TextView) staffView.findViewById(R.id.staffCode)).setText(getSafeText(staff.optString("emp_code", "")));
+                ((TextView) staffView.findViewById(R.id.staffContact)).setText(getSafeText(staff.optString("emp_contact", "")));
+                ((TextView) staffView.findViewById(R.id.staffPf)).setText(getSafeText(staff.optString("pf_number", "")));
+                ((TextView) staffView.findViewById(R.id.staffEsi)).setText(getSafeText(staff.optString("esi_number", "")));
+                ((TextView) staffView.findViewById(R.id.staffGross)).setText(formatCurrency(staff.optString("gross_pay", "")));
+
+                // ✅ Add to container AFTER it's inflated
+                binding.staffContent.addView(staffView);
             }
 
-            if (staffList.length() >= 2) {
-                JSONObject staff2 = staffList.getJSONObject(1);
-                binding.etStaff2Name.setText(staff2.optString("emp_name", ""));
-                binding.etStaff2Code.setText(staff2.optString("emp_code", ""));
-                binding.etStaff2Contact.setText(staff2.optString("emp_contact", ""));
-                binding.etStaff2Pf.setText(staff2.optString("pf_number", ""));
-                binding.etStaff2Esi.setText(staff2.optString("esi_number", ""));
-                binding.etStaff2Gross.setText(staff2.optString("gross_pay", ""));
-            }
+
 
         } catch (JSONException e) {
             Toast.makeText(this, "Error parsing data", Toast.LENGTH_LONG).show();
             Log.e("step0", "JSON error: " + e.getMessage());
         }
+    }
+    private String getSafeText(String input) {
+        return (input == null || input.trim().isEmpty()) ? "-" : input.trim();
+    }
+
+    private String formatCurrency(String value) {
+        return (value == null || value.trim().isEmpty()) ? "-" : "₹" + value.trim();
     }
 
     private boolean validateInputs() {

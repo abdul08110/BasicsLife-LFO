@@ -10,6 +10,15 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorAccent">#000</color>
     <color name="basics">#FABD01</color>
-    <color name="green">#38c96d</color>
     <color name="bgdialog">#f7f7f7</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
+    <color name="orange">#FF9800</color>
+
+    <color name="green_dark">#388E3C</color>
+    <color name="red_dark">#D32F2F</color>
+    <color name="purple_500">#9C27B0</color>
+    <color name="blue_grey_dark">#455A64</color>
+    <color name="brown">#6D4C41</color>
+
 </resources>
